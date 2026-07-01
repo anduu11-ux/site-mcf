@@ -66,14 +66,18 @@
     /* ═══════════════════════════════════════════════════════════
        LANGUAGE SWITCHER
        ═══════════════════════════════════════════════════════════ */
-    .lang-switcher { display: flex; gap: .3rem; }
-    .lang-btn {
+    .lang-switcher { display: flex; align-items: center; }
+    #lang-select {
       border: 1.5px solid var(--border); background: transparent; cursor: pointer;
       padding: .28rem .55rem; border-radius: 5px; font-size: .78rem;
-      font-weight: 600; color: var(--gray); transition: all .18s;
+      font-weight: 600; color: var(--gray); transition: border-color .18s, color .18s;
+      font-family: inherit; appearance: none; -webkit-appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%23718096'/%3E%3C/svg%3E");
+      background-repeat: no-repeat; background-position: right .5rem center;
+      padding-right: 1.6rem;
     }
-    .lang-btn:hover { border-color: var(--blue); color: var(--blue); }
-    .lang-btn.active { background: var(--blue); border-color: var(--blue); color: var(--white); }
+    #lang-select:hover, #lang-select:focus { border-color: var(--blue); color: var(--blue); outline: none; }
+    #lang-select option { background: var(--navy); color: var(--white); }
 
     /* ═══════════════════════════════════════════════════════════
        HAMBURGER BUTTON  (hidden on desktop)
@@ -388,9 +392,14 @@
     </ul>
     <div class="nav-right">
       <div class="lang-switcher">
-        <button class="lang-btn active" onclick="setLang('nl')">NL</button>
-        <button class="lang-btn"        onclick="setLang('en')">EN</button>
-        <button class="lang-btn"        onclick="setLang('ro')">RO</button>
+        <select id="lang-select" onchange="setLang(this.value)">
+          <option value="ro">Română</option>
+          <option value="fr">Français</option>
+          <option value="nl">Nederlands</option>
+          <option value="pt">Português</option>
+          <option value="ru">Русский</option>
+          <option value="uk">Українська</option>
+        </select>
       </div>
       <a class="nav-cta" onclick="showPage('contact')" data-i18n="nav_cta">Gratis advies</a>
       <button class="hamburger" onclick="this.closest('nav').classList.toggle('open')" aria-label="Menu">☰</button>
@@ -762,7 +771,7 @@
   <script src="translations.js"></script>
 
   <!-- Load language-switcher engine -->
-  <script src="../shared/i18n.js"></script>
+  <script src="i18n.js"></script>
 
   <script>
     /* ══════════════════════════════════════════════════════════
@@ -775,86 +784,112 @@
            label – dropdown text in each language
            docs  – text shown when this subject is selected
        ══════════════════════════════════════════════════════════ */
+    /* ══════════════════════════════════════════════════════════
+       HOW TO EDIT SUBJECTS
+       ──────────────────────────────────────────────────────────
+       Each subject has:
+         key   – internal identifier (no spaces)
+         label – dropdown text in each language  { ro, fr, pt, ru, uk }
+         docs  – documents info shown per language { ro, fr, pt, ru, uk }
+
+       To add a new language column, add it to every label/docs object
+       and add the <option> in the <select id="lang-select"> in the HTML.
+       ══════════════════════════════════════════════════════════ */
     const SUBJECTS = [
       {
-        key:   'boekhouding',
-        label: { nl: 'Boekhouding',        en: 'Bookkeeping',       ro: 'Contabilitate' },
+        key:   'contabilitate',
+        label: { nl: 'Boekhouding',          ro: 'Contabilitate',       fr: 'Comptabilité',        pt: 'Contabilidade',        ru: 'Бухгалтерский учёт',     uk: 'Бухгалтерський облік' },
         docs:  {
           nl: 'Breng mee: bankafschriften, inkoopfacturen, verkoopfacturen, kassatickets en eventuele contracten.',
-          en: 'Please bring: bank statements, purchase invoices, sales invoices, receipts and any contracts.',
           ro: 'Aduceți: extrase bancare, facturi de achiziție, facturi de vânzare, bonuri fiscale și contracte.',
+          fr: 'Apportez : relevés bancaires, factures d\'achat, factures de vente, reçus et contrats éventuels.',
+          pt: 'Traga: extratos bancários, faturas de compra, faturas de venda, recibos e contratos.',
+          ru: 'Принесите: банковские выписки, счета-фактуры на покупку, счета-фактуры на продажу, кассовые чеки и договоры.',
+          uk: 'Принесіть: банківські виписки, рахунки-фактури на купівлю, рахунки-фактури на продаж, касові чеки та договори.',
         },
       },
       {
-        key:   'fiscaal',
-        label: { nl: 'Belastingaangifte',  en: 'Tax return',        ro: 'Declarație fiscală' },
+        key:   'fiscal',
+        label: { nl: 'Belastingaangifte',   ro: 'Declarație fiscală',  fr: 'Déclaration fiscale', pt: 'Declaração fiscal',    ru: 'Налоговая декларация',   uk: 'Податкова декларація' },
         docs:  {
           nl: 'Breng mee: identiteitskaart, vorige aangifte, loonfiches, attest hypotheeklening en bewijzen van aftrekbare kosten.',
-          en: 'Please bring: identity card, previous tax return, salary slips, mortgage certificate and evidence of deductible expenses.',
           ro: 'Aduceți: carte de identitate, declarația anterioară, fluturași de salariu, certificat ipotecar și dovezi cheltuieli deductibile.',
+          fr: 'Apportez : carte d\'identité, déclaration précédente, fiches de salaire, attestation de prêt hypothécaire et preuves de dépenses déductibles.',
+          pt: 'Traga: cartão de identificação, declaração anterior, recibos de vencimento, certidão de hipoteca e comprovativos de despesas dedutíveis.',
+          ru: 'Принесите: удостоверение личности, предыдущую декларацию, расчётные листки, справку об ипотеке и подтверждение вычитаемых расходов.',
+          uk: 'Принесіть: посвідчення особи, попередню декларацію, розрахункові листки, довідку про іпотеку та підтвердження витрат, що підлягають вирахуванню.',
         },
       },
       {
-        key:   'btw',
-        label: { nl: 'BTW-aangifte',       en: 'VAT return',        ro: 'Declarație TVA' },
+        key:   'tva',
+        label: { nl: 'BTW-aangifte',        ro: 'Declarație TVA',      fr: 'Déclaration TVA',     pt: 'Declaração IVA',       ru: 'Декларация НДС',         uk: 'Декларація ПДВ' },
         docs:  {
           nl: 'Breng mee: alle inkoopfacturen, verkoopfacturen en een overzicht van BTW-plichtige handelingen voor de betreffende periode.',
-          en: 'Please bring: all purchase invoices, sales invoices and an overview of VAT-taxable transactions for the relevant period.',
           ro: 'Aduceți: toate facturile de achiziție, facturile de vânzare și situația operațiunilor taxabile TVA pentru perioada respectivă.',
+          fr: 'Apportez : toutes les factures d\'achat, factures de vente et un aperçu des opérations soumises à la TVA pour la période concernée.',
+          pt: 'Traga: todas as faturas de compra, faturas de venda e um resumo das operações sujeitas a IVA para o período em causa.',
+          ru: 'Принесите: все счета-фактуры на покупку, счета-фактуры на продажу и обзор операций, облагаемых НДС, за соответствующий период.',
+          uk: 'Принесіть: всі рахунки-фактури на купівлю, рахунки-фактури на продаж та огляд операцій, що оподатковуються ПДВ, за відповідний період.',
         },
       },
       {
-        key:   'oprichting',
-        label: { nl: 'Bedrijfsoprichting', en: 'Company formation',  ro: 'Înființare firmă' },
+        key:   'infiintare',
+        label: { nl: 'Bedrijfsoprichting',  ro: 'Înființare firmă',    fr: 'Création d\'entreprise', pt: 'Constituição de empresa', ru: 'Регистрация компании', uk: 'Реєстрація компанії' },
         docs:  {
           nl: 'Breng mee: identiteitskaart van alle vennoten, financieel plan (indien beschikbaar) en een beschrijving van de geplande activiteiten.',
-          en: 'Please bring: identity card of all partners, financial plan (if available) and a description of the planned business activities.',
           ro: 'Aduceți: actul de identitate al tuturor asociaților, plan de afaceri (dacă există) și descrierea activităților planificate.',
+          fr: 'Apportez : carte d\'identité de tous les associés, plan financier (si disponible) et description des activités prévues.',
+          pt: 'Traga: cartão de identificação de todos os sócios, plano financeiro (se disponível) e descrição das atividades previstas.',
+          ru: 'Принесите: удостоверения личности всех партнёров, бизнес-план (при наличии) и описание планируемой деятельности.',
+          uk: 'Принесіть: посвідчення особи всіх партнерів, бізнес-план (якщо є) та опис запланованої діяльності.',
         },
       },
       {
-        key:   'loon',
-        label: { nl: 'Loonbeheer',         en: 'Payroll',           ro: 'Administrare salarii' },
+        key:   'salarii',
+        label: { nl: 'Loonadministratie',   ro: 'Administrare salarii', fr: 'Gestion des salaires', pt: 'Processamento salarial', ru: 'Расчёт зарплаты',      uk: 'Розрахунок зарплати' },
         docs:  {
           nl: 'Breng mee: arbeidscontracten, identiteitsgegevens van de werknemer(s) en het overeengekomen brutoloon.',
-          en: 'Please bring: employment contracts, employee identity details and the agreed gross salary.',
           ro: 'Aduceți: contracte de muncă, datele de identitate ale angajatului (angajaților) și salariul brut agreat.',
+          fr: 'Apportez : contrats de travail, données d\'identité du/des employé(s) et le salaire brut convenu.',
+          pt: 'Traga: contratos de trabalho, dados de identificação do(s) colaborador(es) e o salário bruto acordado.',
+          ru: 'Принесите: трудовые договоры, персональные данные сотрудника(ов) и согласованную брутто-зарплату.',
+          uk: 'Принесіть: трудові договори, персональні дані співробітника(ів) та погоджену брутто-зарплату.',
         },
       },
       {
-        key:   'advies',
-        label: { nl: 'Financieel advies',  en: 'Financial advice',  ro: 'Consultanță financiară' },
+        key:   'consultanta',
+        label: { nl: 'Financieel advies',   ro: 'Consultanță financiară', fr: 'Conseil financier', pt: 'Assessoria financeira', ru: 'Финансовое консультирование', uk: 'Фінансове консультування' },
         docs:  {
           nl: 'Breng mee: recente jaarrekeningen, bankafschriften van de laatste 3 maanden en een overzicht van uw huidige financiële situatie.',
-          en: 'Please bring: recent annual accounts, bank statements from the last 3 months and an overview of your current financial situation.',
           ro: 'Aduceți: situații financiare recente, extrase bancare din ultimele 3 luni și o prezentare a situației financiare actuale.',
+          fr: 'Apportez : comptes annuels récents, relevés bancaires des 3 derniers mois et un aperçu de votre situation financière actuelle.',
+          pt: 'Traga: contas anuais recentes, extratos bancários dos últimos 3 meses e uma visão geral da sua situação financeira atual.',
+          ru: 'Принесите: последнюю годовую отчётность, банковские выписки за последние 3 месяца и обзор вашего текущего финансового положения.',
+          uk: 'Принесіть: останню річну звітність, банківські виписки за останні 3 місяці та огляд вашого поточного фінансового стану.',
         },
       },
       {
         key:   'audit',
-        label: { nl: 'Audit & Controle',   en: 'Audit & Control',   ro: 'Audit & Control' },
+        label: { nl: 'Audit & Controle',    ro: 'Audit & Control',     fr: 'Audit & Contrôle',    pt: 'Auditoria & Controlo', ru: 'Аудит и контроль',       uk: 'Аудит і контроль' },
         docs:  {
           nl: 'Breng mee: jaarrekeningen van de laatste 2 jaar, grootboek, alle facturen en interne beleidsdocumenten.',
-          en: 'Please bring: annual accounts for the last 2 years, general ledger, all invoices and internal policy documents.',
           ro: 'Aduceți: situații financiare pe ultimii 2 ani, registrul general, toate facturile și documentele de politică internă.',
+          fr: 'Apportez : comptes annuels des 2 dernières années, grand livre, toutes les factures et documents de politique interne.',
+          pt: 'Traga: contas anuais dos últimos 2 anos, razão geral, todas as faturas e documentos de política interna.',
+          ru: 'Принесите: годовую отчётность за последние 2 года, главную книгу, все счета-фактуры и внутренние документы политики.',
+          uk: 'Принесіть: річну звітність за останні 2 роки, головну книгу, всі рахунки-фактури та внутрішні документи.',
         },
       },
       {
-        key:   'andere',
-        label: { nl: 'Andere',             en: 'Other',             ro: 'Altele' },
+        key:   'altele',
+        label: { nl: 'Andere',              ro: 'Altele',              fr: 'Autre',               pt: 'Outro',                ru: 'Другое',                 uk: 'Інше' },
         docs:  {
           nl: 'Beschrijf uw vraag in het berichtveld hieronder. Wij nemen contact op om uw situatie te bespreken.',
-          en: 'Please describe your question in the message field below. We will contact you to discuss your situation.',
           ro: 'Descrieți întrebarea dvs. în câmpul de mesaj de mai jos. Vă vom contacta pentru a discuta situația.',
-        },
-      },
-      {
-        key:   'ABCDEFG',
-        label: { nl: 'ABCDEFG',        en: 'Bookkeeping',       ro: 'Contabilitate' },
-        docs:  {
-          nl: 'Breng mee: bankafschriften, inkoopfacturen, verkoopfacturen, kassatickets en eventuele contracten.',
-          en: 'Please bring: bank statements, purchase invoices, sales invoices, receipts and any contracts.',
-          ro: 'Aduceți: extrase bancare, facturi de achiziție, facturi de vânzare, bonuri fiscale și contracte.',
+          fr: 'Décrivez votre question dans le champ de message ci-dessous. Nous vous contacterons pour discuter de votre situation.',
+          pt: 'Descreva a sua questão no campo de mensagem abaixo. Entraremos em contacto para discutir a sua situação.',
+          ru: 'Опишите свой вопрос в поле сообщения ниже. Мы свяжемся с вами для обсуждения вашей ситуации.',
+          uk: 'Опишіть своє запитання у полі повідомлення нижче. Ми зв\'яжемося з вами для обговорення вашої ситуації.',
         },
       },
     ];
@@ -878,45 +913,52 @@
       // {
       //   date:  '2025-06-01',
       //   tag:   'BTW',
-      //   title: { nl: 'Titel NL', en: 'Title EN', ro: 'Titlu RO' },
-      //   body:  { nl: 'Tekst NL.', en: 'Text EN.', ro: 'Text RO.' },
+      //   title: { ro: 'Titlu RO', fr: 'Titre FR', pt: 'Título PT', ru: 'Заголовок RU', uk: 'Заголовок UK' },
+      //   body:  { ro: 'Text RO.', fr: 'Texte FR.', pt: 'Texto PT.', ru: 'Текст RU.', uk: 'Текст UK.' },
       // },
     ];
 
     /* Renders the NEWS array into #news-list in the current language */
     function renderNews() {
-      const lang = document.documentElement.lang || 'nl';
+      const lang = document.documentElement.lang || 'ro';
       const list = document.getElementById('news-list');
       if (!list) return;
 
-      // Update page subtitle for current language
       const subtitles = {
-        nl: 'Blijf op de hoogte van de laatste fiscale en boekhoudkundige wijzigingen.',
-        en: 'Stay informed about the latest fiscal and accounting law changes.',
         ro: 'Rămâneți la curent cu cele mai recente modificări fiscale și contabile.',
+        fr: 'Restez informé des dernières modifications fiscales et comptables.',
+        pt: 'Fique a par das últimas alterações fiscais e contabilísticas.',
+        ru: 'Будьте в курсе последних изменений в налоговом и бухгалтерском законодательстве.',
+        uk: 'Будьте в курсі останніх змін у податковому та бухгалтерському законодавстві.',
       };
       const titles = {
-        nl: 'Wetswijzigingen & updates',
-        en: 'Law changes & updates',
         ro: 'Modificări legislative & noutăți',
+        fr: 'Changements législatifs & actualités',
+        pt: 'Alterações legislativas & notícias',
+        ru: 'Изменения законодательства & новости',
+        uk: 'Зміни законодавства & новини',
+      };
+      const emptyMsg = {
+        ro: 'Nu există știri disponibile.',
+        fr: 'Aucune actualité disponible.',
+        pt: 'Não há notícias disponíveis.',
+        ru: 'Нет доступных новостей.',
+        uk: 'Немає доступних новин.',
       };
       const titleEl = document.getElementById('news-title');
       const subEl   = document.getElementById('news-sub');
-      if (titleEl) titleEl.textContent = titles[lang] || titles.nl;
-      if (subEl)   subEl.textContent   = subtitles[lang] || subtitles.nl;
+      if (titleEl) titleEl.textContent = titles[lang] || titles.ro;
+      if (subEl)   subEl.textContent   = subtitles[lang] || subtitles.ro;
 
       if (NEWS.length === 0) {
-        list.innerHTML = '<p class="news-empty">Geen nieuwsberichten beschikbaar.</p>';
+        list.innerHTML = `<p class="news-empty">${emptyMsg[lang] || emptyMsg.ro}</p>`;
         return;
       }
 
+      const locales = { ro: 'ro-RO', fr: 'fr-BE', pt: 'pt-PT', ru: 'ru-RU', uk: 'uk-UA' };
       list.innerHTML = NEWS.map(item => {
-        // Format date nicely: "18 juni 2025"
         const d = new Date(item.date);
-        const formatted = d.toLocaleDateString(
-          lang === 'nl' ? 'nl-BE' : lang === 'ro' ? 'ro-RO' : 'en-GB',
-          { day: 'numeric', month: 'long', year: 'numeric' }
-        );
+        const formatted = d.toLocaleDateString(locales[lang] || 'ro-RO', { day: 'numeric', month: 'long', year: 'numeric' });
         return `
           <div class="news-item">
             <div class="news-meta">
@@ -924,8 +966,8 @@
               <span class="news-tag">${item.tag}</span>
             </div>
             <div class="news-body">
-              <h3>${item.title[lang] || item.title.nl}</h3>
-              <p>${item.body[lang] || item.body.nl}</p>
+              <h3>${item.title[lang] || item.title.ro}</h3>
+              <p>${item.body[lang] || item.body.ro}</p>
             </div>
           </div>`;
       }).join('');
@@ -938,41 +980,41 @@
        Add a new object to the array below:
 
        {
-         q: { nl: 'Vraag?', en: 'Question?', ro: 'Întrebare?' },
-         a: { nl: 'Antwoord.', en: 'Answer.', ro: 'Răspuns.' },
+         q: { ro: 'Întrebare?', fr: 'Question ?', pt: 'Pergunta?', ru: 'Вопрос?', uk: 'Питання?' },
+         a: { ro: 'Răspuns.', fr: 'Réponse.', pt: 'Resposta.', ru: 'Ответ.', uk: 'Відповідь.' },
        },
        ══════════════════════════════════════════════════════════ */
     const FAQ = [
       {
-        q: { nl: 'Vraag?', en: 'Question?', ro: 'Ce forma juridica este potrivita pentru mine?' },
-        a: { nl: 'Antwoord.', en: 'Answer.', ro: 'Aceasta este intotdeauna o intrebare de start. O mare pare dintre clientii nostri incep ca independenti dar daca volumul de munca este mare si aveti mai multi asociati/colaboratori, o societate cu raspundere limitata (BV) este adesea recomandata. ' }
+        q: { ro: 'Ce formă juridică este potrivită pentru mine?', fr: 'Quelle forme juridique me convient ?', pt: 'Que forma jurídica é adequada para mim?', ru: 'Какая организационно-правовая форма мне подходит?', uk: 'Яка організаційно-правова форма мені підходить?' },
+        a: { ro: 'Aceasta este întotdeauna o întrebare de start. O mare parte dintre clienții noștri încep ca independenți, dar dacă volumul de muncă este mare și aveți mai mulți asociați/colaboratori, o societate cu răspundere limitată (BV) este adesea recomandată.', fr: 'C\'est toujours une question de départ. La plupart de nos clients commencent comme indépendants, mais si le volume de travail est important et que vous avez plusieurs associés, une société à responsabilité limitée (BV) est souvent recommandée.', pt: 'Esta é sempre uma questão de partida. A maioria dos nossos clientes começa como independentes, mas se o volume de trabalho for grande e tiver vários sócios, uma sociedade de responsabilidade limitada (BV) é frequentemente recomendada.', ru: 'Это всегда начальный вопрос. Большинство наших клиентов начинают как самозанятые, но если объём работы большой и у вас несколько партнёров, общество с ограниченной ответственностью (BV) часто рекомендуется.', uk: 'Це завжди початкове питання. Більшість наших клієнтів починають як самозайняті, але якщо обсяг роботи великий і у вас є кілька партнерів, товариство з обмеженою відповідальністю (BV) часто рекомендується.' },
       },
-      // Add FAQ items here. Example:d
+      // Add FAQ items here. Example:
       // {
-      //   q: { nl: 'Vraag?', en: 'Question?', ro: 'Întrebare?' },
-      //   a: { nl: 'Antwoord.', en: 'Answer.', ro: 'Răspuns.' },
+      //   q: { ro: 'Întrebare?', fr: 'Question ?', pt: 'Pergunta?', ru: 'Вопрос?', uk: 'Питання?' },
+      //   a: { ro: 'Răspuns.', fr: 'Réponse.', pt: 'Resposta.', ru: 'Ответ.', uk: 'Відповідь.' },
       // },
     ];
 
     function renderFAQ() {
-      const lang    = document.documentElement.lang || 'nl';
+      const lang    = document.documentElement.lang || 'ro';
       const list    = document.getElementById('faq-list');
       const titleEl = document.getElementById('faq-title');
       const subEl   = document.getElementById('faq-sub');
       if (!list) return;
 
-      const titles = { nl: 'Veelgestelde vragen', en: 'Frequently asked questions', ro: 'Întrebări frecvente' };
-      const subs   = { nl: 'Antwoorden op de meest gestelde vragen.', en: 'Answers to the most common questions.', ro: 'Răspunsuri la cele mai frecvente întrebări.' };
-      if (titleEl) titleEl.textContent = titles[lang] || titles.nl;
-      if (subEl)   subEl.textContent   = subs[lang]   || subs.nl;
+      const titles = { ro: 'Întrebări frecvente', fr: 'Questions fréquentes', pt: 'Perguntas frequentes', ru: 'Часто задаваемые вопросы', uk: 'Часті запитання' };
+      const subs   = { ro: 'Răspunsuri la cele mai frecvente întrebări.', fr: 'Réponses aux questions les plus courantes.', pt: 'Respostas às perguntas mais frequentes.', ru: 'Ответы на наиболее часто задаваемые вопросы.', uk: 'Відповіді на найпоширеніші запитання.' };
+      if (titleEl) titleEl.textContent = titles[lang] || titles.ro;
+      if (subEl)   subEl.textContent   = subs[lang]   || subs.ro;
 
       list.innerHTML = FAQ.map((item, i) => `
         <div class="faq-item" id="faq-${i}">
           <button class="faq-question" onclick="toggleFAQ(${i})" aria-expanded="false">
-            <span>${item.q[lang] || item.q.nl}</span>
+            <span>${item.q[lang] || item.q.ro}</span>
             <span class="faq-icon">+</span>
           </button>
-          <div class="faq-answer">${item.a[lang] || item.a.nl}</div>
+          <div class="faq-answer">${item.a[lang] || item.a.ro}</div>
         </div>`).join('');
     }
 
@@ -1025,7 +1067,7 @@
        SUBJECT DROPDOWN & REQUIRED DOCUMENTS
        ══════════════════════════════════════════════════════════ */
     function renderSubjects() {
-      const lang = document.documentElement.lang || 'nl';
+      const lang = document.documentElement.lang || 'ro';
       const sel  = document.getElementById('subject-select');
       if (!sel) return;
 
@@ -1035,13 +1077,13 @@
       sel.innerHTML = '';
       const placeholder = document.createElement('option');
       placeholder.value = '';
-      placeholder.textContent = (TRANSLATIONS[lang] || TRANSLATIONS.nl).ph_subject;
+      placeholder.textContent = (TRANSLATIONS[lang] || TRANSLATIONS.ro).ph_subject;
       sel.appendChild(placeholder);
 
       SUBJECTS.forEach(s => {
         const opt = document.createElement('option');
         opt.value = s.key;
-        opt.textContent = s.label[lang] || s.label.nl;
+        opt.textContent = s.label[lang] || s.label.ro;
         if (s.key === currentKey) opt.selected = true;
         sel.appendChild(opt);
       });
@@ -1051,14 +1093,14 @@
     }
 
     function showDocs(key) {
-      const lang    = document.documentElement.lang || 'nl';
+      const lang    = document.documentElement.lang || 'ro';
       const docsDiv = document.getElementById('contact-docs');
       const docsP   = document.getElementById('docs-text');
       if (!docsDiv || !docsP) return;
 
       const subject = SUBJECTS.find(s => s.key === key);
       if (subject && key) {
-        docsP.textContent = subject.docs[lang] || subject.docs.nl;
+        docsP.textContent = subject.docs[lang] || subject.docs.ro;
         docsDiv.style.display = 'block';
       } else {
         docsDiv.style.display = 'none';
