@@ -30,6 +30,106 @@
 const TRANSLATIONS = {
 
   /* ════════════════════════════════════════════════════════════
+     ENGLISH  (EN)
+     ════════════════════════════════════════════════════════════ */
+  en: {
+
+    // ── Navigation ──────────────────────────────────────────
+    nav_services:       'Services',
+    nav_experts:        'Our Experts',
+    nav_about:          'About us',
+    nav_news:           'News',
+    nav_faq:            'FAQ',
+    nav_contact:        'Contact',
+    nav_cta:            'Free advice',
+
+    // ── Hero section ────────────────────────────────────────
+    hero_badge:         'Certified Accounting Firm · Antwerp · Est. 2017',
+    hero_itaa:          'ITAA Number : 50 617 731',
+    hero_h1:            'Your finances in <em>trusted hands</em>',
+    hero_p:             'MC Fiduciaire guides entrepreneurs and SMEs in Antwerp and the surrounding area with personal fiscal and accounting advice.',
+    hero_btn1:          'Book an appointment',
+    hero_btn2:          'Our services',
+
+    // ── Stats bar ───────────────────────────────────────────
+    stat1:              'Founded',
+    stat2:              'Experts',
+    stat3:              'Companies',
+    stat4:              'Certified',
+
+    // ── Services page ───────────────────────────────────────
+    srv_tag:            'What we do',
+    srv_title:          'Our services',
+    srv_sub:            'From daily bookkeeping to strategic tax advice – a complete package for your business.',
+
+    s1t: 'Bookkeeping',
+    s1p: 'Accurate daily and monthly bookkeeping for your company.',
+
+    s2t: 'Tax return',
+    s2p: 'Correct and timely filing of all taxes, including corporate and personal income tax.',
+
+    s3t: 'Financial advice',
+    s3p: 'Strategic advice for growth, investments and optimisation of your finances.',
+
+    s4t: 'Company formation',
+    s4p: 'Guidance when setting up your company, from legal form to registration.',
+
+    s5t: 'Payroll administration',
+    s5p: 'Correct payroll processing, social documents and declarations for your employees.',
+
+    s6t: 'Audit & Control',
+    s6p: 'Independent audit of your annual accounts and internal processes.',
+
+    // ── Experts page ────────────────────────────────────────
+    exp_tag:            'The team',
+    exp_title:          'Our experts',
+    exp_sub:            'Meet the people behind MC Fiduciaire.',
+
+    // ── About / Why Us page ─────────────────────────────────
+    why_tag:            'Why MC Fiduciaire',
+    why_title:          'More than an accountant',
+    why_sub:            'We are your strategic partner – involved, proactive and always reachable.',
+    why1:               'Certified tax accountants with years of experience',
+    why2:               'Personal approach – not numbers but people',
+    why3:               'Proactive advice – we contact you, not the other way around',
+    why4:               'Based in Antwerp, easy to reach',
+    why5:               'Transparent fees with no surprises',
+    why6:               'Fast response times within 24 hours',
+    why_years:          'Years of experience',
+    why_vat:            'VAT number',
+    why_itaa:           'ITAA number',
+
+    // ── Contact page ────────────────────────────────────────
+    ct_tag:             'Get in touch',
+    ct_title:           'Ready to work together?',
+    ct_p:               'Have a question or want a no-obligation introductory meeting? Fill in the form and we will get back to you quickly.',
+    ct_active:          'Active since 2017',
+    ct_btn:             'Send message',
+
+    ph_name:            'Your name',
+    ph_email:           'Email address',
+    ph_tel:             'Phone number',
+    ph_subject:         'Choose a subject...',
+    ph_msg:             'Your message...',
+
+    lbl_address:        'Address',
+    lbl_vat:            'VAT number',
+    lbl_hours:          'Opening hours',
+    hours_val:          'Mon–Fri: 09:00–17:30',
+    docs_label:         'Documents to bring:',
+
+    // ── Footer ──────────────────────────────────────────────
+    footer:             '© 2025 MC Fiduciaire BV · Heistraat 339, 2610 Antwerpen · VAT BE 0683.926.808',
+
+    // ── Cookie banner ────────────────────────────────────────
+    cookie_text:        'We use cookies to improve your experience on our website and track anonymous visitor statistics. You can change your choice at any time.',
+    cookie_accept:      'Accept all cookies',
+    cookie_decline:     'Essential only',
+    cookie_policy:      'More information',
+  },
+
+
+  /* ════════════════════════════════════════════════════════════
      DUTCH  (NL)
      ════════════════════════════════════════════════════════════ */
   nl: {

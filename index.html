@@ -395,6 +395,7 @@
         <select id="lang-select" onchange="setLang(this.value)">
           <option value="ro">Română</option>
           <option value="fr">Français</option>
+          <option value="en">English</option>
           <option value="nl">Nederlands</option>
           <option value="pt">Português</option>
           <option value="ru">Русский</option>
@@ -798,8 +799,9 @@
     const SUBJECTS = [
       {
         key:   'contabilitate',
-        label: { nl: 'Boekhouding',          ro: 'Contabilitate',       fr: 'Comptabilité',        pt: 'Contabilidade',        ru: 'Бухгалтерский учёт',     uk: 'Бухгалтерський облік' },
+        label: { en: 'Bookkeeping',          nl: 'Boekhouding',          ro: 'Contabilitate',       fr: 'Comptabilité',        pt: 'Contabilidade',        ru: 'Бухгалтерский учёт',     uk: 'Бухгалтерський облік' },
         docs:  {
+          en: 'Please bring: bank statements, purchase invoices, sales invoices, receipts and any contracts.',
           nl: 'Breng mee: bankafschriften, inkoopfacturen, verkoopfacturen, kassatickets en eventuele contracten.',
           ro: 'Aduceți: extrase bancare, facturi de achiziție, facturi de vânzare, bonuri fiscale și contracte.',
           fr: 'Apportez : relevés bancaires, factures d\'achat, factures de vente, reçus et contrats éventuels.',
@@ -810,8 +812,9 @@
       },
       {
         key:   'fiscal',
-        label: { nl: 'Belastingaangifte',   ro: 'Declarație fiscală',  fr: 'Déclaration fiscale', pt: 'Declaração fiscal',    ru: 'Налоговая декларация',   uk: 'Податкова декларація' },
+        label: { en: 'Tax return',           nl: 'Belastingaangifte',   ro: 'Declarație fiscală',  fr: 'Déclaration fiscale', pt: 'Declaração fiscal',    ru: 'Налоговая декларация',   uk: 'Податкова декларація' },
         docs:  {
+          en: 'Please bring: identity card, previous tax return, salary slips, mortgage certificate and evidence of deductible expenses.',
           nl: 'Breng mee: identiteitskaart, vorige aangifte, loonfiches, attest hypotheeklening en bewijzen van aftrekbare kosten.',
           ro: 'Aduceți: carte de identitate, declarația anterioară, fluturași de salariu, certificat ipotecar și dovezi cheltuieli deductibile.',
           fr: 'Apportez : carte d\'identité, déclaration précédente, fiches de salaire, attestation de prêt hypothécaire et preuves de dépenses déductibles.',
@@ -822,8 +825,9 @@
       },
       {
         key:   'tva',
-        label: { nl: 'BTW-aangifte',        ro: 'Declarație TVA',      fr: 'Déclaration TVA',     pt: 'Declaração IVA',       ru: 'Декларация НДС',         uk: 'Декларація ПДВ' },
+        label: { en: 'VAT return',           nl: 'BTW-aangifte',        ro: 'Declarație TVA',      fr: 'Déclaration TVA',     pt: 'Declaração IVA',       ru: 'Декларация НДС',         uk: 'Декларація ПДВ' },
         docs:  {
+          en: 'Please bring: all purchase invoices, sales invoices and an overview of VAT-taxable transactions for the relevant period.',
           nl: 'Breng mee: alle inkoopfacturen, verkoopfacturen en een overzicht van BTW-plichtige handelingen voor de betreffende periode.',
           ro: 'Aduceți: toate facturile de achiziție, facturile de vânzare și situația operațiunilor taxabile TVA pentru perioada respectivă.',
           fr: 'Apportez : toutes les factures d\'achat, factures de vente et un aperçu des opérations soumises à la TVA pour la période concernée.',
@@ -834,8 +838,9 @@
       },
       {
         key:   'infiintare',
-        label: { nl: 'Bedrijfsoprichting',  ro: 'Înființare firmă',    fr: 'Création d\'entreprise', pt: 'Constituição de empresa', ru: 'Регистрация компании', uk: 'Реєстрація компанії' },
+        label: { en: 'Company formation',    nl: 'Bedrijfsoprichting',  ro: 'Înființare firmă',    fr: 'Création d\'entreprise', pt: 'Constituição de empresa', ru: 'Регистрация компании', uk: 'Реєстрація компанії' },
         docs:  {
+          en: 'Please bring: identity card of all partners, financial plan (if available) and a description of the planned business activities.',
           nl: 'Breng mee: identiteitskaart van alle vennoten, financieel plan (indien beschikbaar) en een beschrijving van de geplande activiteiten.',
           ro: 'Aduceți: actul de identitate al tuturor asociaților, plan de afaceri (dacă există) și descrierea activităților planificate.',
           fr: 'Apportez : carte d\'identité de tous les associés, plan financier (si disponible) et description des activités prévues.',
@@ -846,8 +851,9 @@
       },
       {
         key:   'salarii',
-        label: { nl: 'Loonadministratie',   ro: 'Administrare salarii', fr: 'Gestion des salaires', pt: 'Processamento salarial', ru: 'Расчёт зарплаты',      uk: 'Розрахунок зарплати' },
+        label: { en: 'Payroll',              nl: 'Loonadministratie',   ro: 'Administrare salarii', fr: 'Gestion des salaires', pt: 'Processamento salarial', ru: 'Расчёт зарплаты',      uk: 'Розрахунок зарплати' },
         docs:  {
+          en: 'Please bring: employment contracts, employee identity details and the agreed gross salary.',
           nl: 'Breng mee: arbeidscontracten, identiteitsgegevens van de werknemer(s) en het overeengekomen brutoloon.',
           ro: 'Aduceți: contracte de muncă, datele de identitate ale angajatului (angajaților) și salariul brut agreat.',
           fr: 'Apportez : contrats de travail, données d\'identité du/des employé(s) et le salaire brut convenu.',
@@ -858,8 +864,9 @@
       },
       {
         key:   'consultanta',
-        label: { nl: 'Financieel advies',   ro: 'Consultanță financiară', fr: 'Conseil financier', pt: 'Assessoria financeira', ru: 'Финансовое консультирование', uk: 'Фінансове консультування' },
+        label: { en: 'Financial advice',     nl: 'Financieel advies',   ro: 'Consultanță financiară', fr: 'Conseil financier', pt: 'Assessoria financeira', ru: 'Финансовое консультирование', uk: 'Фінансове консультування' },
         docs:  {
+          en: 'Please bring: recent annual accounts, bank statements from the last 3 months and an overview of your current financial situation.',
           nl: 'Breng mee: recente jaarrekeningen, bankafschriften van de laatste 3 maanden en een overzicht van uw huidige financiële situatie.',
           ro: 'Aduceți: situații financiare recente, extrase bancare din ultimele 3 luni și o prezentare a situației financiare actuale.',
           fr: 'Apportez : comptes annuels récents, relevés bancaires des 3 derniers mois et un aperçu de votre situation financière actuelle.',
@@ -870,8 +877,9 @@
       },
       {
         key:   'audit',
-        label: { nl: 'Audit & Controle',    ro: 'Audit & Control',     fr: 'Audit & Contrôle',    pt: 'Auditoria & Controlo', ru: 'Аудит и контроль',       uk: 'Аудит і контроль' },
+        label: { en: 'Audit & Control',      nl: 'Audit & Controle',    ro: 'Audit & Control',     fr: 'Audit & Contrôle',    pt: 'Auditoria & Controlo', ru: 'Аудит и контроль',       uk: 'Аудит і контроль' },
         docs:  {
+          en: 'Please bring: annual accounts for the last 2 years, general ledger, all invoices and internal policy documents.',
           nl: 'Breng mee: jaarrekeningen van de laatste 2 jaar, grootboek, alle facturen en interne beleidsdocumenten.',
           ro: 'Aduceți: situații financiare pe ultimii 2 ani, registrul general, toate facturile și documentele de politică internă.',
           fr: 'Apportez : comptes annuels des 2 dernières années, grand livre, toutes les factures et documents de politique interne.',
@@ -882,8 +890,9 @@
       },
       {
         key:   'altele',
-        label: { nl: 'Andere',              ro: 'Altele',              fr: 'Autre',               pt: 'Outro',                ru: 'Другое',                 uk: 'Інше' },
+        label: { en: 'Other',                nl: 'Andere',              ro: 'Altele',              fr: 'Autre',               pt: 'Outro',                ru: 'Другое',                 uk: 'Інше' },
         docs:  {
+          en: 'Please describe your question in the message field below. We will contact you to discuss your situation.',
           nl: 'Beschrijf uw vraag in het berichtveld hieronder. Wij nemen contact op om uw situatie te bespreken.',
           ro: 'Descrieți întrebarea dvs. în câmpul de mesaj de mai jos. Vă vom contacta pentru a discuta situația.',
           fr: 'Décrivez votre question dans le champ de message ci-dessous. Nous vous contacterons pour discuter de votre situation.',
