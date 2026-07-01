@@ -1,0 +1,1089 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MC Fiduciaire – Gecertificeerd Accountantskantoor</title>
+  <style>
+
+    /* ═══════════════════════════════════════════════════════════
+       VARIABLES  –  change the color scheme here Adaugare limbi rom, franceza,eng, portugheza, rusa, ucraineanas mc ficuiaire aceeasi culoare in footer
+       ═══════════════════════════════════════════════════════════ */
+    :root {
+      --navy:       #0d1b2a;
+      --blue:       #1a56db;
+      --blue-hover: #1446b8;
+      --blue-light: #e8f0fe;
+      --gold:       #c9a84c;
+      --gray:       #6b7280;
+      --light:      #f9fafb;
+      --border:     #e5e7eb;
+      --white:      #ffffff;
+    }
+
+    /* ═══════════════════════════════════════════════════════════
+       RESET & BASE
+       ═══════════════════════════════════════════════════════════ */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Segoe UI', system-ui, sans-serif; color: var(--navy); background: var(--white); }
+
+    /* ═══════════════════════════════════════════════════════════
+       PAGE ROUTING  –  show/hide pages
+       ═══════════════════════════════════════════════════════════ */
+    .page         { display: none; }
+    .page.active  { display: block; }
+
+    /* ═══════════════════════════════════════════════════════════
+       NAVIGATION
+       ═══════════════════════════════════════════════════════════ */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0;
+      background: var(--white); box-shadow: 0 1px 8px rgba(0,0,0,.08);
+      z-index: 100; display: flex; align-items: center; justify-content: space-between;
+      padding: 0 6%; height: 70px; gap: 1rem;
+    }
+    .logo {
+      font-size: 1.4rem; font-weight: 700; color: var(--navy);
+      letter-spacing: -.5px; white-space: nowrap; cursor: pointer;
+    }
+    .logo span { color: var(--blue); }
+    nav ul { list-style: none; display: flex; gap: 1.8rem; }
+    nav ul a {
+      text-decoration: none; color: var(--gray); font-size: .9rem;
+      transition: color .2s; cursor: pointer; padding-bottom: 2px;
+      border-bottom: 2px solid transparent;
+    }
+    nav ul a:hover     { color: var(--blue); }
+    nav ul a.nav-active { color: var(--blue); font-weight: 600; border-bottom-color: var(--blue); }
+    .nav-right { display: flex; align-items: center; gap: .8rem; }
+    .nav-cta {
+      background: var(--blue); color: var(--white); border: none;
+      padding: .55rem 1.4rem; border-radius: 6px; font-size: .9rem;
+      cursor: pointer; text-decoration: none; transition: background .2s; white-space: nowrap;
+    }
+    .nav-cta:hover { background: var(--blue-hover); }
+
+    /* ═══════════════════════════════════════════════════════════
+       LANGUAGE SWITCHER
+       ═══════════════════════════════════════════════════════════ */
+    .lang-switcher { display: flex; gap: .3rem; }
+    .lang-btn {
+      border: 1.5px solid var(--border); background: transparent; cursor: pointer;
+      padding: .28rem .55rem; border-radius: 5px; font-size: .78rem;
+      font-weight: 600; color: var(--gray); transition: all .18s;
+    }
+    .lang-btn:hover { border-color: var(--blue); color: var(--blue); }
+    .lang-btn.active { background: var(--blue); border-color: var(--blue); color: var(--white); }
+
+    /* ═══════════════════════════════════════════════════════════
+       HAMBURGER BUTTON  (hidden on desktop)
+       ═══════════════════════════════════════════════════════════ */
+    .hamburger {
+      display: none; background: none; border: 1.5px solid var(--border);
+      color: var(--navy); font-size: 1.2rem; padding: .3rem .65rem;
+      border-radius: 5px; cursor: pointer; line-height: 1;
+    }
+
+    /* ═══════════════════════════════════════════════════════════
+       PAGE WRAPPER  –  leaves room for fixed nav
+       ═══════════════════════════════════════════════════════════ */
+    .page-wrapper { padding-top: 70px; min-height: calc(100vh - 60px); }
+
+    /* ═══════════════════════════════════════════════════════════
+       HERO
+       ═══════════════════════════════════════════════════════════ */
+    .hero {
+      min-height: calc(90vh - 70px);
+      display: flex; align-items: center;
+      background: linear-gradient(135deg, var(--navy) 0%, #1e3a5f 100%);
+      padding: 6%; position: relative; overflow: hidden;
+    }
+    .hero::before {
+      content: ''; position: absolute; top: -120px; right: -120px;
+      width: 500px; height: 500px; border-radius: 50%;
+      background: rgba(26,86,219,.15);
+    }
+    .hero-content { max-width: 620px; position: relative; }
+    .hero-badges { display: flex; flex-direction: column; align-items: flex-start; gap: .5rem; margin-bottom: 1.5rem; }
+    .hero-badge,
+    .hero-itaa {
+      display: inline-block; background: var(--gold); color: var(--navy);
+      font-size: .78rem; font-weight: 700; letter-spacing: 1px;
+      text-transform: uppercase; padding: .35rem .85rem; border-radius: 4px;
+    }
+    .hero h1 { font-size: clamp(2rem, 4vw, 3.2rem); color: var(--white); line-height: 1.15; margin-bottom: 1.2rem; }
+    .hero h1 em { color: var(--gold); font-style: normal; }
+    .hero p { color: rgba(255,255,255,.75); font-size: 1.1rem; line-height: 1.7; margin-bottom: 2rem; }
+    .hero-btns { display: flex; gap: 1rem; flex-wrap: wrap; }
+    .btn-primary {
+      background: var(--blue); color: var(--white); padding: .85rem 2rem; border-radius: 8px;
+      font-size: 1rem; font-weight: 600; text-decoration: none; cursor: pointer; border: none;
+      transition: background .2s, transform .15s;
+    }
+    .btn-primary:hover { background: var(--blue-hover); transform: translateY(-2px); }
+    .btn-outline {
+      border: 2px solid rgba(255,255,255,.4); color: var(--white); background: none;
+      padding: .85rem 2rem; border-radius: 8px; font-size: 1rem; font-weight: 600;
+      text-decoration: none; cursor: pointer; transition: border-color .2s;
+    }
+    .btn-outline:hover { border-color: var(--white); }
+
+    /* ═══════════════════════════════════════════════════════════
+       STATS BAR
+       ═══════════════════════════════════════════════════════════ */
+    .stats {
+      background: var(--white); padding: 3.5rem 6%;
+      display: grid; grid-template-columns: repeat(4, 1fr);
+      gap: 2rem; text-align: center; border-bottom: 1px solid var(--border);
+    }
+    .stat-num   { font-size: 2.4rem; font-weight: 800; color: var(--blue); }
+    .stat-label { color: var(--gray); font-size: .9rem; margin-top: .3rem; }
+
+    /* ═══════════════════════════════════════════════════════════
+       SHARED SECTION STYLES
+       ═══════════════════════════════════════════════════════════ */
+    .section { padding: 5rem 6%; }
+    .section-tag   { color: var(--blue); font-size: .8rem; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; }
+    .section-title { font-size: clamp(1.6rem, 3vw, 2.4rem); margin: .6rem 0 1rem; }
+    .section-sub   { color: var(--gray); font-size: 1.05rem; max-width: 560px; line-height: 1.7; }
+
+    /* ═══════════════════════════════════════════════════════════
+       SERVICES GRID
+       ═══════════════════════════════════════════════════════════ */
+    .services-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.5rem; margin-top: 3rem;
+    }
+    .card {
+      background: var(--light); border-radius: 12px; padding: 2rem;
+      border: 1px solid var(--border); transition: box-shadow .25s, transform .25s;
+    }
+    .card:hover { box-shadow: 0 8px 30px rgba(26,86,219,.12); transform: translateY(-4px); }
+    .card-icon { font-size: 2rem; margin-bottom: 1rem; }
+    .card h3   { font-size: 1.1rem; margin-bottom: .6rem; }
+    .card p    { color: var(--gray); font-size: .93rem; line-height: 1.6; }
+
+    /* ═══════════════════════════════════════════════════════════
+       EXPERTS GRID
+       ═══════════════════════════════════════════════════════════ */
+    .experts-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 3.5rem 2.5rem; margin-top: 3.5rem;
+    }
+    .expert-card { text-align: center; }
+
+    /* Photo circle — replace div with <img class="expert-avatar"> for a real photo */
+    .expert-avatar {
+      width: 180px; height: 180px; border-radius: 50%;
+      background: var(--blue-light); border: 3px solid #d1deff;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 2.8rem; font-weight: 800; color: var(--blue);
+      margin: 0 auto 1.3rem; overflow: hidden;
+      transition: border-color .25s;
+    }
+    .expert-card:hover .expert-avatar { border-color: var(--blue); }
+    /* When using a real photo:
+       <img src="photos/name.jpg" alt="Full Name" class="expert-avatar" style="object-fit:cover;width:180px;height:180px;"> */
+
+    .expert-name  { font-size: 1.1rem; font-weight: 700; color: var(--navy); margin-bottom: .25rem; }
+    .expert-spec  { font-size: .9rem; color: var(--gray); }
+
+    /* ═══════════════════════════════════════════════════════════
+       NEWS PAGE
+       ═══════════════════════════════════════════════════════════ */
+    .news-list { margin-top: 3rem; display: flex; flex-direction: column; gap: 0; }
+    .news-item {
+      padding: 2.2rem 0; border-bottom: 1px solid var(--border);
+      display: grid; grid-template-columns: 10rem 1fr; gap: 2rem; align-items: start;
+    }
+    .news-item:first-child { border-top: 1px solid var(--border); }
+    .news-meta { padding-top: .15rem; }
+    .news-date {
+      font-size: .82rem; font-weight: 700; color: var(--blue);
+      letter-spacing: .5px; display: block; margin-bottom: .5rem;
+    }
+    .news-tag {
+      display: inline-block; font-size: .72rem; font-weight: 700; letter-spacing: 1px;
+      text-transform: uppercase; padding: .2rem .6rem; border-radius: 3px;
+      background: var(--blue-light); color: var(--blue);
+    }
+    .news-body h3   { font-size: 1.15rem; font-weight: 700; color: var(--navy); margin-bottom: .6rem; line-height: 1.3; }
+    .news-body p    { color: var(--gray); font-size: .95rem; line-height: 1.75; }
+    .news-empty     { color: var(--gray); font-size: 1rem; margin-top: 2rem; }
+
+    /* ═══════════════════════════════════════════════════════════
+       FAQ PAGE
+       ═══════════════════════════════════════════════════════════ */
+    .faq-list { margin-top: 3rem; display: flex; flex-direction: column; gap: 0; max-width: 780px; }
+    .faq-item { border-bottom: 1px solid var(--border); }
+    .faq-item:first-child { border-top: 1px solid var(--border); }
+    .faq-question {
+      width: 100%; background: none; border: none; cursor: pointer;
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 1.4rem 0; gap: 1.5rem; text-align: left;
+    }
+    .faq-question span { font-size: 1rem; font-weight: 600; color: var(--navy); line-height: 1.4; }
+    .faq-question:hover span { color: var(--blue); }
+    .faq-icon {
+      font-size: 1.4rem; color: var(--blue); flex-shrink: 0;
+      transition: transform .25s; font-weight: 300; line-height: 1;
+    }
+    .faq-item.open .faq-icon { transform: rotate(45deg); }
+    .faq-answer {
+      display: none; padding: 0 0 1.4rem;
+      color: var(--gray); font-size: .95rem; line-height: 1.75;
+    }
+    .faq-item.open .faq-answer { display: block; }
+
+    /* ═══════════════════════════════════════════════════════════
+       WHY US
+       ═══════════════════════════════════════════════════════════ */
+    .why { background: var(--blue-light); }
+    .why-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
+    .why-list { list-style: none; margin-top: 1.5rem; display: flex; flex-direction: column; gap: .9rem; }
+    .why-list li { display: flex; gap: .8rem; align-items: flex-start; font-size: .97rem; line-height: 1.6; }
+    .why-list li::before { content: '✓'; color: var(--blue); font-weight: 700; flex-shrink: 0; }
+    .why-visual { background: var(--navy); border-radius: 16px; padding: 3rem; color: var(--white); text-align: center; }
+    .why-visual .big { font-size: 4rem; font-weight: 900; color: var(--gold); }
+    .why-visual p    { color: rgba(255,255,255,.7); margin-top: .5rem; font-size: .95rem; }
+
+    /* ═══════════════════════════════════════════════════════════
+       CONTACT
+       ═══════════════════════════════════════════════════════════ */
+    .contact { background: var(--navy); color: var(--white); }
+    .contact .section-tag   { color: var(--gold); }
+    .contact .section-title { color: var(--white); }
+    .contact-grid { display: grid; grid-template-columns: 1fr 1.3fr; gap: 4rem; margin-top: 3rem; }
+
+    /* Contact info */
+    .contact-info p { color: rgba(255,255,255,.7); line-height: 1.8; font-size: .97rem; }
+    .contact-detail { display: flex; gap: .8rem; margin-top: 1.5rem; align-items: flex-start; }
+    .contact-detail .icon { font-size: 1.3rem; }
+    .contact-detail div   { color: rgba(255,255,255,.8); font-size: .95rem; line-height: 1.5; }
+
+    /* Contact form */
+    .contact-form { display: flex; flex-direction: column; gap: 1rem; }
+    .contact-form input,
+    .contact-form select,
+    .contact-form textarea {
+      background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.2);
+      color: var(--white); padding: .85rem 1rem; border-radius: 8px;
+      font-size: .95rem; font-family: inherit; transition: border-color .2s;
+    }
+    .contact-form select { cursor: pointer; }
+    .contact-form select option { background: var(--navy); color: var(--white); }
+    .contact-form input::placeholder,
+    .contact-form textarea::placeholder { color: rgba(255,255,255,.4); }
+    .contact-form input:focus,
+    .contact-form select:focus,
+    .contact-form textarea:focus { outline: none; border-color: var(--blue); }
+    .contact-form textarea { resize: vertical; min-height: 120px; }
+    .contact-form button {
+      background: var(--blue); color: var(--white); border: none; padding: .9rem;
+      border-radius: 8px; font-size: 1rem; font-weight: 600; cursor: pointer; transition: background .2s;
+    }
+    .contact-form button:hover { background: var(--blue-hover); }
+
+    /* Required-documents info box */
+    .docs-box {
+      background: rgba(201,168,76,.12); border: 1px solid rgba(201,168,76,.4);
+      border-radius: 8px; padding: 1rem 1.2rem; display: none;
+    }
+    .docs-box strong { color: var(--gold); font-size: .85rem; font-weight: 700; letter-spacing: .5px; display: block; margin-bottom: .4rem; }
+    .docs-box p      { color: rgba(255,255,255,.8); font-size: .9rem; line-height: 1.65; }
+
+    /* ═══════════════════════════════════════════════════════════
+       FOOTER
+       ═══════════════════════════════════════════════════════════ */
+    footer { background: #060f18; color: rgba(255,255,255,.45); text-align: center; padding: 1.8rem; font-size: .85rem; }
+
+    /* ═══════════════════════════════════════════════════════════
+       COOKIE BANNER
+       ═══════════════════════════════════════════════════════════ */
+    #cookie-banner {
+      position: fixed; bottom: 0; left: 0; right: 0; z-index: 999;
+      background: var(--navy); color: rgba(255,255,255,.85);
+      padding: 1.2rem 6%; display: flex; align-items: center;
+      gap: 2rem; flex-wrap: wrap;
+      border-top: 3px solid var(--blue);
+      box-shadow: 0 -4px 24px rgba(0,0,0,.25);
+    }
+    #cookie-banner.hidden { display: none; }
+    #cookie-banner p { font-size: .88rem; line-height: 1.6; flex: 1 1 300px; }
+    #cookie-banner a { color: var(--gold); text-decoration: underline; font-size: .88rem; white-space: nowrap; }
+    .cookie-btns { display: flex; gap: .7rem; flex-wrap: wrap; flex-shrink: 0; }
+    .cookie-accept {
+      background: var(--blue); color: var(--white); border: none;
+      padding: .6rem 1.4rem; border-radius: 6px; font-size: .88rem;
+      font-weight: 600; cursor: pointer; transition: background .2s; white-space: nowrap;
+    }
+    .cookie-accept:hover { background: var(--blue-hover); }
+    .cookie-decline {
+      background: transparent; color: rgba(255,255,255,.7);
+      border: 1.5px solid rgba(255,255,255,.3);
+      padding: .6rem 1.4rem; border-radius: 6px; font-size: .88rem;
+      font-weight: 600; cursor: pointer; transition: all .2s; white-space: nowrap;
+    }
+    .cookie-decline:hover { border-color: rgba(255,255,255,.7); color: var(--white); }
+
+    /* ═══════════════════════════════════════════════════════════
+       RESPONSIVE
+       ═══════════════════════════════════════════════════════════ */
+    @media (max-width: 768px) {
+      /* nav */
+      .hamburger { display: block; }
+      .nav-cta   { display: none; }
+      nav ul {
+        display: none; flex-direction: column; gap: 0;
+        position: absolute; top: 70px; left: 0; right: 0;
+        background: var(--white); border-bottom: 2px solid var(--blue);
+        padding: .5rem 6% 1rem; z-index: 99;
+      }
+      nav ul li { border-bottom: 1px solid var(--border); }
+      nav ul a  { display: block; padding: .85rem 0; font-size: 1rem; color: var(--navy); }
+      nav.open ul { display: flex; }
+
+      /* hero */
+      .hero { padding: 4rem 5% 3rem; min-height: auto; }
+      .hero h1 { font-size: 2rem; }
+
+      /* stats */
+      .stats { grid-template-columns: 1fr 1fr; padding: 2.5rem 5%; }
+
+      /* sections */
+      .section { padding: 3.5rem 5%; }
+
+      /* services */
+      .services-grid { grid-template-columns: 1fr; }
+
+      /* experts */
+      .experts-grid { grid-template-columns: 1fr 1fr; gap: 2rem 1.5rem; }
+      .expert-avatar { width: 130px; height: 130px; font-size: 2rem; }
+
+      /* why / contact */
+      .why-inner    { grid-template-columns: 1fr; gap: 2rem; }
+      .contact-grid { grid-template-columns: 1fr; gap: 2rem; }
+    }
+
+    @media (max-width: 480px) {
+      .experts-grid { grid-template-columns: 1fr; }
+    }
+
+  </style>
+</head>
+<body>
+
+  <!-- ══════════════════════════════════════════════════════════
+       NAVIGATION  –  always visible, fixed to top
+       ══════════════════════════════════════════════════════════ -->
+  <nav>
+    <div class="logo" onclick="showPage('home')">MC <span>Fiduciaire</span></div>
+    <ul>
+      <li><a data-page="services" onclick="showPage('services')" data-i18n="nav_services">Diensten</a></li>
+      <li><a data-page="experts"  onclick="showPage('experts')"  data-i18n="nav_experts">Onze Experts</a></li>
+      <li><a data-page="about"    onclick="showPage('about')"    data-i18n="nav_about">Over ons</a></li>
+      <li><a data-page="news"     onclick="showPage('news')"     data-i18n="nav_news">Nieuws</a></li>
+      <li><a data-page="faq"      onclick="showPage('faq')"      data-i18n="nav_faq">FAQ</a></li>
+      <li><a data-page="contact"  onclick="showPage('contact')"  data-i18n="nav_contact">Contact</a></li>
+    </ul>
+    <div class="nav-right">
+      <div class="lang-switcher">
+        <button class="lang-btn active" onclick="setLang('nl')">NL</button>
+        <button class="lang-btn"        onclick="setLang('en')">EN</button>
+        <button class="lang-btn"        onclick="setLang('ro')">RO</button>
+      </div>
+      <a class="nav-cta" onclick="showPage('contact')" data-i18n="nav_cta">Gratis advies</a>
+      <button class="hamburger" onclick="this.closest('nav').classList.toggle('open')" aria-label="Menu">☰</button>
+    </div>
+  </nav>
+
+
+  <!-- ══════════════════════════════════════════════════════════
+       PAGE: HOME
+       ══════════════════════════════════════════════════════════ -->
+  <div class="page active" id="page-home">
+    <div class="page-wrapper">
+
+      <!-- ── Hero ──────────────────────────────────────────── -->
+      <section class="hero">
+        <div class="hero-content">
+          <div class="hero-badges">
+            <span class="hero-badge" data-i18n="hero_badge">Gecertificeerd Accountantskantoor · Antwerpen · Est. 2017</span>
+            <span class="hero-itaa"  data-i18n="hero_itaa">Nummer ITAA : 50 617 731</span>
+          </div>
+          <h1 data-i18n-html="hero_h1">Uw financiën in <em>vertrouwde handen</em></h1>
+          <p data-i18n="hero_p">MC Fiduciaire begeleidt ondernemers en kmo's.</p>
+          <div class="hero-btns">
+            <button class="btn-primary" onclick="showPage('contact')" data-i18n="hero_btn1">Maak een afspraak</button>
+            <button class="btn-outline"  onclick="showPage('services')" data-i18n="hero_btn2">Onze diensten</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- ── Stats ─────────────────────────────────────────── -->
+      <div class="stats">
+        <div><div class="stat-num">2017</div><div class="stat-label" data-i18n="stat1">Opgericht</div></div>
+        <div><div class="stat-num">9+</div>  <div class="stat-label" data-i18n="stat2">Experts</div></div>
+        <div><div class="stat-num">500+</div><div class="stat-label" data-i18n="stat3">Bedrijven</div></div>
+        <div><div class="stat-num">100%</div><div class="stat-label" data-i18n="stat4">Gecertificeerd</div></div>
+      </div>
+
+    </div>
+  </div>
+
+
+  <!-- ══════════════════════════════════════════════════════════
+       PAGE: SERVICES
+       ══════════════════════════════════════════════════════════ -->
+  <div class="page" id="page-services">
+    <div class="page-wrapper">
+      <section class="section">
+        <div class="section-tag"   data-i18n="srv_tag">Wat we doen</div>
+        <h1 class="section-title"  data-i18n="srv_title">Onze diensten</h1>
+        <p class="section-sub"     data-i18n="srv_sub">Van dagelijkse boekhouding…</p>
+        <div class="services-grid">
+          <div class="card"><div class="card-icon">📊</div><h3 data-i18n="s1t">Boekhouding</h3>        <p data-i18n="s1p"></p></div>
+          <div class="card"><div class="card-icon">📈</div><h3 data-i18n="s2t">Fiscale aangifte</h3>  <p data-i18n="s2p"></p></div>
+          <div class="card"><div class="card-icon">🧾</div><h3 data-i18n="s3t">Financieel advies</h3> <p data-i18n="s3p"></p></div>
+          <div class="card"><div class="card-icon">🏢</div><h3 data-i18n="s4t">Bedrijfsoprichting</h3><p data-i18n="s4p"></p></div>
+          <div class="card"><div class="card-icon">💼</div><h3 data-i18n="s5t">Loonadministratie</h3> <p data-i18n="s5p"></p></div>
+          <div class="card"><div class="card-icon">🔍</div><h3 data-i18n="s6t">Audit &amp; Controle</h3><p data-i18n="s6p"></p></div>
+        </div> 
+      </section>
+    </div>
+  </div>
+
+
+  <!-- ══════════════════════════════════════════════════════════
+       PAGE: OUR EXPERTS
+       ──────────────────────────────────────────────────────────
+       HOW TO EDIT THIS PAGE
+       ─────────────────────
+       Each expert card has three editable fields:
+         1. Initials in the avatar circle  (e.g. "JD")
+         2. Full name                      (e.g. "Jan De Smedt")
+         3. Email address                  (e.g. "jan@mcfiduciaire.be")
+         4. Specialisation                 (e.g. "Vennootschapsbelasting")
+
+       To add a real photo, replace the <div class="expert-avatar"> with:
+         <img src="photos/jan.jpg" alt="Jan De Smedt" class="expert-avatar" style="object-fit:cover">
+       ══════════════════════════════════════════════════════════ -->
+  <div class="page" id="page-experts">
+    <div class="page-wrapper">
+      <section class="section">
+        <div class="section-tag"  data-i18n="exp_tag">Het team</div>
+        <h1 class="section-title" data-i18n="exp_title">Onze experts</h1>
+        <p class="section-sub"    data-i18n="exp_sub">Maak kennis met de mensen achter MC Fiduciaire.</p>
+
+        <div class="experts-grid">
+
+          <!-- ══════════════════════════════════════════════════
+               HOW TO EDIT EACH EXPERT CARD
+               ────────────────────────────────────────────────
+               1. Change the two letters in <div class="expert-avatar">
+                  to the person's initials  (e.g. "JD")
+               2. Update the name, specialisation and email below
+               3. To use a real photo, replace the avatar div with:
+                  <img src="photos/name.jpg" alt="Full Name"
+                       class="expert-avatar"
+                       style="object-fit:cover;width:180px;height:180px;">
+               ══════════════════════════════════════════════════ -->
+
+          <!-- ── Expert 1 ── -->
+          <div class="expert-card">
+            <img src="photos/name.jpg" alt="Full Name"
+                       class="expert-avatar"
+                       style="object-fit:cover;width:180px;height:180px;">
+            <div class="expert-name">Voornaam Achternaam</div>
+            <div class="expert-spec">Specialisatie</div>
+          </div>
+
+          <!-- ── Expert 2 ── -->
+          <div class="expert-card">
+            <img src="photos/name.jpg" alt="Full Name"
+                       class="expert-avatar"
+                       style="object-fit:cover;width:180px;height:180px;">
+            <div class="expert-name">Voornaam Achternaam</div>
+            <div class="expert-spec">Specialisatie</div>
+          </div>
+
+          <!-- ── Expert 3 ── -->
+          <div class="expert-card">
+            <img src="photos/name.jpg" alt="Full Name"
+                       class="expert-avatar"
+                       style="object-fit:cover;width:180px;height:180px;">
+            <div class="expert-name">Voornaam Achternaam</div>
+            <div class="expert-spec">Specialisatie</div>
+          </div>
+
+          <!-- ── Expert 4 ── -->
+          <div class="expert-card">
+            <img src="photos/name.jpg" alt="Full Name"
+                       class="expert-avatar"
+                       style="object-fit:cover;width:180px;height:180px;">
+            <div class="expert-name">Voornaam Achternaam</div>
+            <div class="expert-spec">Specialisatie</div>
+          </div>
+
+          <!-- ── Expert 5 ── -->
+          <div class="expert-card">
+            <img src="photos/name.jpg" alt="Full Name"
+                       class="expert-avatar"
+                       style="object-fit:cover;width:180px;height:180px;">
+            <div class="expert-name">Voornaam Achternaam</div>
+            <div class="expert-spec">Specialisatie</div>
+          </div>
+
+          <!-- ── Expert 6 ── -->
+          <div class="expert-card">
+            <img src="photos/name.jpg" alt="Full Name"
+                       class="expert-avatar"
+                       style="object-fit:cover;width:180px;height:180px;">
+            <div class="expert-name">Voornaam Achternaam</div>
+            <div class="expert-spec">Specialisatie</div>
+          </div>
+
+          <!-- ── Expert 7 ── -->
+          <div class="expert-card">
+            <img src="photos/name.jpg" alt="Full Name"
+                       class="expert-avatar"
+                       style="object-fit:cover;width:180px;height:180px;">
+            <div class="expert-name">Voornaam Achternaam</div>
+            <div class="expert-spec">Specialisatie</div>
+          </div>
+
+          <!-- ── Expert 8 ── -->
+          <div class="expert-card">
+            <img src="photos/name.jpg" alt="Full Name"
+                       class="expert-avatar"
+                       style="object-fit:cover;width:180px;height:180px;">
+            <div class="expert-name">Voornaam Achternaam</div>
+            <div class="expert-spec">Specialisatie</div>
+          </div>
+
+          <!-- ── Expert 9 ── -->
+          <div class="expert-card">
+            <img src="photos/name.jpg" alt="Full Name"
+                       class="expert-avatar"
+                       style="object-fit:cover;width:180px;height:180px;">
+            <div class="expert-name">Voornaam Achternaam</div>
+            <div class="expert-spec">Specialisatie</div>
+          </div>
+
+
+        </div>
+      </section>
+    </div>
+  </div>
+
+
+  <!-- ══════════════════════════════════════════════════════════
+       PAGE: ABOUT / WHY US
+       ══════════════════════════════════════════════════════════ -->
+  <div class="page" id="page-about">
+    <div class="page-wrapper">
+      <section class="section why">
+        <div class="why-inner">
+          <div>
+            <div class="section-tag"  data-i18n="why_tag">Waarom MC Fiduciaire</div>
+            <h1 class="section-title" data-i18n="why_title">Meer dan een accountant</h1>
+            <p class="section-sub"    data-i18n="why_sub">Wij zijn uw strategische partner.</p>
+            <ul class="why-list">
+              <li data-i18n="why1">Gecertificeerde fiscaal accountants met jarenlange ervaring</li>
+              <li data-i18n="why2">Persoonlijke aanpak</li>
+              <li data-i18n="why3">Proactief advies</li>
+              <li data-i18n="why4">Gevestigd in Antwerpen</li>
+              <li data-i18n="why5">Transparante tarieven</li>
+              <li data-i18n="why6">Snelle responstijden</li>
+            </ul>
+          </div>
+          <div class="why-visual">
+            <div class="big">10+</div>
+            <p data-i18n="why_years">Jaar ervaring</p>
+            <div class="big" style="font-size:1.6rem;margin-top:2rem;letter-spacing:-.5px;">BE 0683.926.808</div>
+            <p style="margin-top:.5rem;" data-i18n="why_vat">BTW-nummer</p>
+            <div class="big" style="font-size:1.6rem;margin-top:1.5rem;letter-spacing:-.5px;">50 617 731</div>
+            <p style="margin-top:.5rem;" data-i18n="why_itaa">ITAA-nummer</p>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+
+
+  <!-- ══════════════════════════════════════════════════════════
+       PAGE: NEWS
+       ──────────────────────────────────────────────────────────
+       HOW TO ADD A NEWS ITEM
+       ──────────────────────
+       Find the NEWS array in the <script> block below and add
+       a new object at the TOP of the array (newest first):
+
+       {
+         date:  '2025-06-18',          ← date (YYYY-MM-DD)
+         tag:   'BTW',                 ← short category label
+         title: { nl: '...', en: '...', ro: '...' },
+         body:  { nl: '...', en: '...', ro: '...' },
+       },
+       ══════════════════════════════════════════════════════════ -->
+  <div class="page" id="page-news">
+    <div class="page-wrapper">
+      <section class="section">
+        <div class="section-tag" data-i18n="nav_news">Nieuws</div>
+        <h1 class="section-title" id="news-title">Wetswijzigingen &amp; updates</h1>
+        <p class="section-sub" id="news-sub">Blijf op de hoogte van de laatste fiscale en boekhoudkundige wijzigingen.</p>
+        <div class="news-list" id="news-list"></div>
+      </section>
+    </div>
+  </div>
+
+
+  <!-- ══════════════════════════════════════════════════════════
+       PAGE: FAQ
+       ──────────────────────────────────────────────────────────
+       HOW TO ADD A QUESTION
+       ─────────────────────
+       Find the FAQ array in the <script> block below and add:
+
+       {
+         q: { nl: 'Vraag?', en: 'Question?', ro: 'Întrebare?' },
+         a: { nl: 'Antwoord.', en: 'Answer.', ro: 'Răspuns.' },
+       },
+       ══════════════════════════════════════════════════════════ -->
+  <div class="page" id="page-faq">
+    <div class="page-wrapper">
+      <section class="section">
+        <div class="section-tag">FAQ</div>
+        <h1 class="section-title" id="faq-title">Veelgestelde vragen</h1>
+        <p class="section-sub" id="faq-sub">Antwoorden op de meest gestelde vragen.</p>
+        <div class="faq-list" id="faq-list"></div>
+      </section>
+    </div>
+  </div>
+
+
+  <!-- ══════════════════════════════════════════════════════════
+       PAGE: CONTACT
+       ══════════════════════════════════════════════════════════ -->
+  <div class="page" id="page-contact">
+    <div class="page-wrapper">
+      <section class="section contact">
+        <div class="section-tag"   data-i18n="ct_tag">Neem contact op</div>
+        <h1 class="section-title"  data-i18n="ct_title">Klaar om samen te werken?</h1>
+        <div class="contact-grid">
+
+          <!-- Left: address info -->
+          <div class="contact-info">
+            <p data-i18n="ct_p">Heeft u vragen?</p>
+            <div class="contact-detail">
+              <span class="icon">📍</span>
+              <div>Heistraat 339<br/>2610 Antwerpen, België</div>
+            </div>
+            <div class="contact-detail">
+              <span class="icon">🏢</span>
+              <div>BTW: BE 0683.926.808<br/><span data-i18n="ct_active">Actief since 2017</span></div>
+            </div>
+            <div class="contact-detail">
+              <span class="icon">🕐</span>
+              <div data-i18n="hours_val">Ma–Vr: 08:00–17:00</div>
+            </div>
+          </div>
+
+          <!-- Right: contact form -->
+          <form class="contact-form" onsubmit="return false;">
+            <input type="text"  data-i18n-ph="ph_name"  placeholder="Uw naam" required />
+            <input type="email" data-i18n-ph="ph_email"  placeholder="E-mailadres" required />
+            <input type="tel"   data-i18n-ph="ph_tel"    placeholder="Telefoonnummer" />
+
+            <!-- ── SUBJECT DROPDOWN ──────────────────────────
+                 Edit the subjects and document texts in the
+                 SUBJECTS array in the <script> block below.
+                 ─────────────────────────────────────────── -->
+            <select id="subject-select" onchange="showDocs(this.value)">
+              <!-- Options are filled automatically by JavaScript -->
+            </select>
+
+            <!-- Required-documents info box (shown after subject is chosen) -->
+            <div class="docs-box" id="contact-docs">
+              <strong data-i18n="docs_label">Mee te brengen documenten:</strong>
+              <p id="docs-text"></p>
+            </div>
+
+            <textarea data-i18n-ph="ph_msg" placeholder="Uw bericht..."></textarea>
+            <button type="submit" data-i18n="ct_btn">Verstuur bericht</button>
+          </form>
+
+        </div>
+      </section>
+    </div>
+  </div>
+
+
+  <!-- ══════════════════════════════════════════════════════════
+       FOOTER  –  always visible
+       ══════════════════════════════════════════════════════════ -->
+  <footer><p data-i18n="footer">© 2025 MC Fiduciaire BV · Heistraat 339, 2610 Antwerpen · BTW BE 0683.926.808</p></footer>
+
+  <!-- ══════════════════════════════════════════════════════════
+       COOKIE BANNER
+       ══════════════════════════════════════════════════════════ -->
+  <div id="cookie-banner" class="hidden" role="dialog" aria-live="polite">
+    <p>
+      <span data-i18n="cookie_text">Wij gebruiken cookies om uw ervaring op onze website te verbeteren en anonieme bezoekersstatistieken bij te houden.</span>
+      <!-- Replace # with your privacy policy page when available -->
+      <a href="#" onclick="return false;" data-i18n="cookie_policy">Meer informatie</a>
+    </p>
+    <div class="cookie-btns">
+      <button class="cookie-accept"  onclick="setCookieChoice('accepted')" data-i18n="cookie_accept">Alle cookies aanvaarden</button>
+      <button class="cookie-decline" onclick="setCookieChoice('declined')" data-i18n="cookie_decline">Alleen noodzakelijke</button>
+    </div>
+  </div>
+
+
+  <!-- ══════════════════════════════════════════════════════════
+       SCRIPTS
+       ══════════════════════════════════════════════════════════ -->
+
+  <!-- ── Cookie consent logic ──────────────────────────────── -->
+  <script>
+    function setCookieChoice(choice) {
+      try { localStorage.setItem('mc-cookies', choice); } catch(e) {}
+      document.getElementById('cookie-banner').classList.add('hidden');
+    }
+    // Show banner only if no choice has been made yet
+    (function() {
+      let choice = '';
+      try { choice = localStorage.getItem('mc-cookies') || ''; } catch(e) {}
+      if (!choice) document.getElementById('cookie-banner').classList.remove('hidden');
+    })();
+  </script>
+
+  <!-- Load translations (all website text) -->
+  <script src="translations.js"></script>
+
+  <!-- Load language-switcher engine -->
+  <script src="../shared/i18n.js"></script>
+
+  <script>
+    /* ══════════════════════════════════════════════════════════
+       CONTACT FORM – SUBJECTS & REQUIRED DOCUMENTS
+       ──────────────────────────────────────────────────────────
+       HOW TO EDIT
+       • Add or remove objects in the SUBJECTS array below.
+       • Each object has:
+           key   – internal identifier (no spaces)
+           label – dropdown text in each language
+           docs  – text shown when this subject is selected
+       ══════════════════════════════════════════════════════════ */
+    const SUBJECTS = [
+      {
+        key:   'boekhouding',
+        label: { nl: 'Boekhouding',        en: 'Bookkeeping',       ro: 'Contabilitate' },
+        docs:  {
+          nl: 'Breng mee: bankafschriften, inkoopfacturen, verkoopfacturen, kassatickets en eventuele contracten.',
+          en: 'Please bring: bank statements, purchase invoices, sales invoices, receipts and any contracts.',
+          ro: 'Aduceți: extrase bancare, facturi de achiziție, facturi de vânzare, bonuri fiscale și contracte.',
+        },
+      },
+      {
+        key:   'fiscaal',
+        label: { nl: 'Belastingaangifte',  en: 'Tax return',        ro: 'Declarație fiscală' },
+        docs:  {
+          nl: 'Breng mee: identiteitskaart, vorige aangifte, loonfiches, attest hypotheeklening en bewijzen van aftrekbare kosten.',
+          en: 'Please bring: identity card, previous tax return, salary slips, mortgage certificate and evidence of deductible expenses.',
+          ro: 'Aduceți: carte de identitate, declarația anterioară, fluturași de salariu, certificat ipotecar și dovezi cheltuieli deductibile.',
+        },
+      },
+      {
+        key:   'btw',
+        label: { nl: 'BTW-aangifte',       en: 'VAT return',        ro: 'Declarație TVA' },
+        docs:  {
+          nl: 'Breng mee: alle inkoopfacturen, verkoopfacturen en een overzicht van BTW-plichtige handelingen voor de betreffende periode.',
+          en: 'Please bring: all purchase invoices, sales invoices and an overview of VAT-taxable transactions for the relevant period.',
+          ro: 'Aduceți: toate facturile de achiziție, facturile de vânzare și situația operațiunilor taxabile TVA pentru perioada respectivă.',
+        },
+      },
+      {
+        key:   'oprichting',
+        label: { nl: 'Bedrijfsoprichting', en: 'Company formation',  ro: 'Înființare firmă' },
+        docs:  {
+          nl: 'Breng mee: identiteitskaart van alle vennoten, financieel plan (indien beschikbaar) en een beschrijving van de geplande activiteiten.',
+          en: 'Please bring: identity card of all partners, financial plan (if available) and a description of the planned business activities.',
+          ro: 'Aduceți: actul de identitate al tuturor asociaților, plan de afaceri (dacă există) și descrierea activităților planificate.',
+        },
+      },
+      {
+        key:   'loon',
+        label: { nl: 'Loonbeheer',         en: 'Payroll',           ro: 'Administrare salarii' },
+        docs:  {
+          nl: 'Breng mee: arbeidscontracten, identiteitsgegevens van de werknemer(s) en het overeengekomen brutoloon.',
+          en: 'Please bring: employment contracts, employee identity details and the agreed gross salary.',
+          ro: 'Aduceți: contracte de muncă, datele de identitate ale angajatului (angajaților) și salariul brut agreat.',
+        },
+      },
+      {
+        key:   'advies',
+        label: { nl: 'Financieel advies',  en: 'Financial advice',  ro: 'Consultanță financiară' },
+        docs:  {
+          nl: 'Breng mee: recente jaarrekeningen, bankafschriften van de laatste 3 maanden en een overzicht van uw huidige financiële situatie.',
+          en: 'Please bring: recent annual accounts, bank statements from the last 3 months and an overview of your current financial situation.',
+          ro: 'Aduceți: situații financiare recente, extrase bancare din ultimele 3 luni și o prezentare a situației financiare actuale.',
+        },
+      },
+      {
+        key:   'audit',
+        label: { nl: 'Audit & Controle',   en: 'Audit & Control',   ro: 'Audit & Control' },
+        docs:  {
+          nl: 'Breng mee: jaarrekeningen van de laatste 2 jaar, grootboek, alle facturen en interne beleidsdocumenten.',
+          en: 'Please bring: annual accounts for the last 2 years, general ledger, all invoices and internal policy documents.',
+          ro: 'Aduceți: situații financiare pe ultimii 2 ani, registrul general, toate facturile și documentele de politică internă.',
+        },
+      },
+      {
+        key:   'andere',
+        label: { nl: 'Andere',             en: 'Other',             ro: 'Altele' },
+        docs:  {
+          nl: 'Beschrijf uw vraag in het berichtveld hieronder. Wij nemen contact op om uw situatie te bespreken.',
+          en: 'Please describe your question in the message field below. We will contact you to discuss your situation.',
+          ro: 'Descrieți întrebarea dvs. în câmpul de mesaj de mai jos. Vă vom contacta pentru a discuta situația.',
+        },
+      },
+      {
+        key:   'ABCDEFG',
+        label: { nl: 'ABCDEFG',        en: 'Bookkeeping',       ro: 'Contabilitate' },
+        docs:  {
+          nl: 'Breng mee: bankafschriften, inkoopfacturen, verkoopfacturen, kassatickets en eventuele contracten.',
+          en: 'Please bring: bank statements, purchase invoices, sales invoices, receipts and any contracts.',
+          ro: 'Aduceți: extrase bancare, facturi de achiziție, facturi de vânzare, bonuri fiscale și contracte.',
+        },
+      },
+    ];
+
+
+    /* ══════════════════════════════════════════════════════════
+       PAGE ROUTING
+       ══════════════════════════════════════════════════════════ */
+    /* ══════════════════════════════════════════════════════════
+       NEWS ITEMS
+       ──────────────────────────────────────────────────────────
+       Add new items at the TOP (they appear newest-first).
+       Fields:
+         date  – 'YYYY-MM-DD'
+         tag   – short category shown as a badge (e.g. 'BTW', 'Fiscaal', 'Sociaal')
+         title – headline in each language
+         body  – article text in each language (HTML allowed, e.g. <strong>, <br>)
+       ══════════════════════════════════════════════════════════ */
+    const NEWS = [
+      // Add news items here. Example:
+      // {
+      //   date:  '2025-06-01',
+      //   tag:   'BTW',
+      //   title: { nl: 'Titel NL', en: 'Title EN', ro: 'Titlu RO' },
+      //   body:  { nl: 'Tekst NL.', en: 'Text EN.', ro: 'Text RO.' },
+      // },
+    ];
+
+    /* Renders the NEWS array into #news-list in the current language */
+    function renderNews() {
+      const lang = document.documentElement.lang || 'nl';
+      const list = document.getElementById('news-list');
+      if (!list) return;
+
+      // Update page subtitle for current language
+      const subtitles = {
+        nl: 'Blijf op de hoogte van de laatste fiscale en boekhoudkundige wijzigingen.',
+        en: 'Stay informed about the latest fiscal and accounting law changes.',
+        ro: 'Rămâneți la curent cu cele mai recente modificări fiscale și contabile.',
+      };
+      const titles = {
+        nl: 'Wetswijzigingen & updates',
+        en: 'Law changes & updates',
+        ro: 'Modificări legislative & noutăți',
+      };
+      const titleEl = document.getElementById('news-title');
+      const subEl   = document.getElementById('news-sub');
+      if (titleEl) titleEl.textContent = titles[lang] || titles.nl;
+      if (subEl)   subEl.textContent   = subtitles[lang] || subtitles.nl;
+
+      if (NEWS.length === 0) {
+        list.innerHTML = '<p class="news-empty">Geen nieuwsberichten beschikbaar.</p>';
+        return;
+      }
+
+      list.innerHTML = NEWS.map(item => {
+        // Format date nicely: "18 juni 2025"
+        const d = new Date(item.date);
+        const formatted = d.toLocaleDateString(
+          lang === 'nl' ? 'nl-BE' : lang === 'ro' ? 'ro-RO' : 'en-GB',
+          { day: 'numeric', month: 'long', year: 'numeric' }
+        );
+        return `
+          <div class="news-item">
+            <div class="news-meta">
+              <span class="news-date">${formatted}</span>
+              <span class="news-tag">${item.tag}</span>
+            </div>
+            <div class="news-body">
+              <h3>${item.title[lang] || item.title.nl}</h3>
+              <p>${item.body[lang] || item.body.nl}</p>
+            </div>
+          </div>`;
+      }).join('');
+    }
+
+    /* ══════════════════════════════════════════════════════════
+       FAQ ITEMS
+       ──────────────────────────────────────────────────────────
+       HOW TO ADD A QUESTION
+       Add a new object to the array below:
+
+       {
+         q: { nl: 'Vraag?', en: 'Question?', ro: 'Întrebare?' },
+         a: { nl: 'Antwoord.', en: 'Answer.', ro: 'Răspuns.' },
+       },
+       ══════════════════════════════════════════════════════════ */
+    const FAQ = [
+      {
+        q: { nl: 'Vraag?', en: 'Question?', ro: 'Ce forma juridica este potrivita pentru mine?' },
+        a: { nl: 'Antwoord.', en: 'Answer.', ro: 'Aceasta este intotdeauna o intrebare de start. O mare pare dintre clientii nostri incep ca independenti dar daca volumul de munca este mare si aveti mai multi asociati/colaboratori, o societate cu raspundere limitata (BV) este adesea recomandata. ' }
+      },
+      // Add FAQ items here. Example:d
+      // {
+      //   q: { nl: 'Vraag?', en: 'Question?', ro: 'Întrebare?' },
+      //   a: { nl: 'Antwoord.', en: 'Answer.', ro: 'Răspuns.' },
+      // },
+    ];
+
+    function renderFAQ() {
+      const lang    = document.documentElement.lang || 'nl';
+      const list    = document.getElementById('faq-list');
+      const titleEl = document.getElementById('faq-title');
+      const subEl   = document.getElementById('faq-sub');
+      if (!list) return;
+
+      const titles = { nl: 'Veelgestelde vragen', en: 'Frequently asked questions', ro: 'Întrebări frecvente' };
+      const subs   = { nl: 'Antwoorden op de meest gestelde vragen.', en: 'Answers to the most common questions.', ro: 'Răspunsuri la cele mai frecvente întrebări.' };
+      if (titleEl) titleEl.textContent = titles[lang] || titles.nl;
+      if (subEl)   subEl.textContent   = subs[lang]   || subs.nl;
+
+      list.innerHTML = FAQ.map((item, i) => `
+        <div class="faq-item" id="faq-${i}">
+          <button class="faq-question" onclick="toggleFAQ(${i})" aria-expanded="false">
+            <span>${item.q[lang] || item.q.nl}</span>
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">${item.a[lang] || item.a.nl}</div>
+        </div>`).join('');
+    }
+
+    function toggleFAQ(i) {
+      const item = document.getElementById('faq-' + i);
+      item.classList.toggle('open');
+      item.querySelector('.faq-question').setAttribute(
+        'aria-expanded', item.classList.contains('open')
+      );
+    }
+
+    const VALID_PAGES = ['home', 'services', 'experts', 'about', 'news', 'faq', 'contact'];
+
+    function showPage(id) {
+      if (!VALID_PAGES.includes(id)) id = 'home';
+
+      // Switch visible page
+      document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+      document.getElementById('page-' + id)?.classList.add('active');
+
+      // Update nav active state
+      document.querySelectorAll('nav ul a[data-page]').forEach(a => {
+        a.classList.toggle('nav-active', a.dataset.page === id);
+      });
+
+      // Close hamburger menu
+      document.querySelector('nav')?.classList.remove('open');
+
+      // Scroll to top
+      window.scrollTo(0, 0);
+
+      // Update URL hash (without scroll jump)
+      history.pushState(null, '', '#' + id);
+    }
+
+    // Handle browser back/forward
+    window.addEventListener('popstate', () => {
+      const hash = location.hash.replace('#', '');
+      showPage(VALID_PAGES.includes(hash) ? hash : 'home');
+    });
+
+    // On first load: go to the page in the URL hash
+    (function () {
+      const hash = location.hash.replace('#', '');
+      if (hash && VALID_PAGES.includes(hash)) showPage(hash);
+    })();
+
+
+    /* ══════════════════════════════════════════════════════════
+       SUBJECT DROPDOWN & REQUIRED DOCUMENTS
+       ══════════════════════════════════════════════════════════ */
+    function renderSubjects() {
+      const lang = document.documentElement.lang || 'nl';
+      const sel  = document.getElementById('subject-select');
+      if (!sel) return;
+
+      const currentKey = sel.value;
+
+      // Rebuild options
+      sel.innerHTML = '';
+      const placeholder = document.createElement('option');
+      placeholder.value = '';
+      placeholder.textContent = (TRANSLATIONS[lang] || TRANSLATIONS.nl).ph_subject;
+      sel.appendChild(placeholder);
+
+      SUBJECTS.forEach(s => {
+        const opt = document.createElement('option');
+        opt.value = s.key;
+        opt.textContent = s.label[lang] || s.label.nl;
+        if (s.key === currentKey) opt.selected = true;
+        sel.appendChild(opt);
+      });
+
+      // Re-show docs if a subject was already chosen
+      if (currentKey) showDocs(currentKey);
+    }
+
+    function showDocs(key) {
+      const lang    = document.documentElement.lang || 'nl';
+      const docsDiv = document.getElementById('contact-docs');
+      const docsP   = document.getElementById('docs-text');
+      if (!docsDiv || !docsP) return;
+
+      const subject = SUBJECTS.find(s => s.key === key);
+      if (subject && key) {
+        docsP.textContent = subject.docs[lang] || subject.docs.nl;
+        docsDiv.style.display = 'block';
+      } else {
+        docsDiv.style.display = 'none';
+      }
+    }
+
+    // Hook into setLang so all dynamic sections re-render when language changes
+    const _origSetLang = window.setLang;
+    window.setLang = function (lang) {
+      _origSetLang(lang);
+      renderSubjects();
+      renderNews();
+      renderFAQ();
+    };
+
+    // Initial render
+    if (document.readyState !== 'loading') {
+      renderSubjects();
+      renderNews();
+      renderFAQ();
+    } else {
+      document.addEventListener('DOMContentLoaded', () => { renderSubjects(); renderNews(); renderFAQ(); });
+    }
+
+  </script>
+
+</body>
+</html>
