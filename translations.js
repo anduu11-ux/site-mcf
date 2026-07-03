@@ -47,7 +47,7 @@ const TRANSLATIONS = {
     hero_badge:         'Certified Accounting Firm · Antwerp · Est. 2017',
     hero_itaa:          'ITAA Number : 50 617 731',
     hero_h1:            'Your finances in <em>trusted hands</em>',
-    hero_p:             'MC Fiduciaire guides entrepreneurs and SMEs in Antwerp and the surrounding area with personal fiscal and accounting advice.',
+    hero_p:             'MC Fiduciaire guides entrepreneurs and SMEs in Belgium with personal fiscal and accounting advice.',
     hero_btn1:          'Book an appointment',
     hero_btn2:          'Our services',
 
@@ -58,31 +58,31 @@ const TRANSLATIONS = {
     stat4:              'Certified',
 
     // ── Services page ───────────────────────────────────────
-    srv_tag:            'What we do',
+    srv_tag:            'Activity',
     srv_title:          'Our services',
     srv_sub:            'From daily bookkeeping to strategic tax advice – a complete package for your business.',
 
     s1t: 'Bookkeeping',
-    s1p: 'Accurate daily and monthly bookkeeping for your company.',
+    s1p: '<li>Daily and monthly bookkeeping</li><li>Bank reconciliation and invoice processing</li><li>Clear financial reporting</li>',
 
     s2t: 'Tax return',
-    s2p: 'Correct and timely filing of all taxes, including corporate and personal income tax.',
+    s2p: '<li>Corporate and personal income tax filing</li><li>Timely submissions to avoid penalties</li><li>Optimised deductions and tax savings</li>',
 
     s3t: 'Financial advice',
-    s3p: 'Strategic advice for growth, investments and optimisation of your finances.',
+    s3p: '<li>Growth and investment strategy</li><li>Cash flow planning and forecasting</li><li>Financial structure optimisation</li>',
 
     s4t: 'Company formation',
-    s4p: 'Guidance when setting up your company, from legal form to registration.',
+    s4p: '<li>Choice of legal structure</li><li>Preparation of financial business plan</li><li>Registration with the authorities</li>',
 
     s5t: 'Payroll administration',
-    s5p: 'Correct payroll processing, social documents and declarations for your employees.',
+    s5p: '<li>Correct payroll processing</li><li>Social documents</li><li>Declarations for your employees</li>',
 
     s6t: 'Audit & Control',
-    s6p: 'Independent audit of your annual accounts and internal processes.',
+    s6p: '<li>Independent audit of annual accounts</li><li>Internal process review</li><li>Compliance and risk assessment</li>',
 
     // ── Experts page ────────────────────────────────────────
     exp_tag:            'The team',
-    exp_title:          'Our experts',
+    exp_title:          'Our team',
     exp_sub:            'Meet the people behind MC Fiduciaire.',
 
     // ── About / Why Us page ─────────────────────────────────
@@ -147,7 +147,7 @@ const TRANSLATIONS = {
     hero_badge:         'Gecertificeerd Accountantskantoor · Antwerpen · Est. 2017',
     hero_itaa:          'Nummer ITAA : 50 617 731',
     hero_h1:            'Uw financiën in <em>vertrouwde handen</em>',
-    hero_p:             'MC Fiduciaire begeleidt ondernemers en kmo\'s in Antwerpen en omgeving met persoonlijk fiscaal en boekhoudkundig advies.',
+    hero_p:             'MC Fiduciaire begeleidt ondernemers en kmo\'s in België met persoonlijk fiscaal en boekhoudkundig advies.',
     hero_btn1:          'Maak een afspraak',
     hero_btn2:          'Onze diensten',
 
@@ -163,22 +163,22 @@ const TRANSLATIONS = {
     srv_sub:            'Van dagelijkse boekhouding tot strategisch fiscaal advies – een compleet pakket voor uw onderneming.',
 
     s1t: 'Boekhouding',
-    s1p: 'Nauwkeurige dagelijkse en maandelijkse boekhouding voor uw bedrijf.',
+    s1p: '<li>Dagelijkse en maandelijkse boekhouding</li><li>Bankverzoening en factuurverwerking</li><li>Duidelijke financiële rapportage</li>',
 
     s2t: 'Fiscale aangifte',
-    s2p: 'Correcte en tijdige aangifte van alle belastingen, inclusief vennootschaps- en personenbelasting.',
+    s2p: '<li>Aangifte vennootschaps- en personenbelasting</li><li>Tijdige indiening om boetes te vermijden</li><li>Geoptimaliseerde aftrekken en belastingbesparing</li>',
 
     s3t: 'Financieel advies',
-    s3p: 'Strategisch advies voor groei, investeringen en optimalisatie van uw financiën.',
+    s3p: '<li>Groei- en investeringsstrategie</li><li>Cashflowplanning en -prognose</li><li>Optimalisatie van de financiële structuur</li>',
 
     s4t: 'Bedrijfsoprichting',
-    s4p: 'Begeleiding bij de oprichting van uw vennootschap, van keuze tot registratie.',
+    s4p: '<li>Keuze van de rechtsvorm</li><li>Opstelling van het financieel plan</li><li>Inschrijving bij de bevoegde instanties</li>',
 
     s5t: 'Loonadministratie',
-    s5p: 'Correcte loonverwerking, sociale documenten en aangiften voor uw medewerkers.',
+    s5p: '<li>Maandelijkse loonverwerking</li><li>Sociale documenten en aangiften</li><li>Naleving van arbeidscontracten</li>',
 
     s6t: 'Audit & Controle',
-    s6p: 'Onafhankelijke controle van uw jaarrekening en interne processen.',
+    s6p: '<li>Onafhankelijke audit van de jaarrekening</li><li>Doorlichting van interne processen</li><li>Compliance- en risicoanalyse</li>',
 
     // ── Experts page ────────────────────────────────────────
     exp_tag:            'Het team',
@@ -236,18 +236,18 @@ const TRANSLATIONS = {
 
     // ── Navigation ──────────────────────────────────────────
     nav_services:       'Servicii',
-    nav_experts:        'Experții noștri',
+    nav_experts:        'Echipa noastră',
     nav_about:          'Despre noi',
     nav_news:           'Noutăți',
     nav_faq:            'FAQ',
     nav_contact:        'Contact',
-    nav_cta:            'Sfat gratuit',
+    nav_cta:            'Consultanță gratuită',
 
     // ── Hero section ────────────────────────────────────────
     hero_badge:         'Cabinet Contabil Certificat · Antwerpen · Est. 2017',
     hero_itaa:          'Număr ITAA : 50 617 731',
     hero_h1:            'Finanțele dvs. în <em>mâini de încredere</em>',
-    hero_p:             'MC Fiduciaire ghidează antreprenorii și IMM-urile din Antwerpen cu consultanță fiscală și contabilă personalizată.',
+    hero_p:             'MC Fiduciaire ghidează antreprenorii și IMM-urile din Belgia cu consultanță fiscală și contabilă personalizată.',
     hero_btn1:          'Programați o întâlnire',
     hero_btn2:          'Serviciile noastre',
 
@@ -258,43 +258,43 @@ const TRANSLATIONS = {
     stat4:              'Certificat',
 
     // ── Services page ───────────────────────────────────────
-    srv_tag:            'Ce facem',
+    srv_tag:            'Activitate',
     srv_title:          'Serviciile noastre',
     srv_sub:            'De la contabilitate zilnică la consultanță fiscală strategică – un pachet complet pentru afacerea dvs.',
 
-    s1t: 'Contabilitate',
-    s1p: 'Contabilitate zilnică și lunară precisă pentru firma dvs.',
+    s1t: 'Contabilitate pentru societați',
+    s1p: '<li>Evidență contabilă completă</li><li>Situații financiare periodice/anuale</li><li>Raportări fiscale</li><li>Asistență in caz de controale fiscale</li>',
 
-    s2t: 'Declarație fiscală',
-    s2p: 'Depunerea corectă și la timp a tuturor declarațiilor fiscale, inclusiv impozit pe profit și venit.',
+    s2t: 'Contabilitate pentru independenți',
+    s2p: '<li>Gestionarea obligațiilor fiscale</li><li>Declarații TVA</li><li>Consultanță fiscală</li>',
 
-    s3t: 'Consultanță financiară',
-    s3p: 'Sfaturi strategice pentru creștere, investiții și optimizarea finanțelor dvs.',
+    s3t: 'Înființări si modificări statut firme/independenți',
+    s3p: '<li>Deschidere societăți/independenți</li><li>Asistență pentru înființarea companiilor - redactare acte constitutive</li><li>Modificări statutare</li><li>Înregistrări TVA</li>',
 
-    s4t: 'Înființare firmă',
-    s4p: 'Asistență la înființarea societății, de la forma juridică până la înregistrare.',
+    s4t: 'Declarații fiscale',
+    s4p: '<li>Impozit persoane fizice</li><li>Impozit societăți</li><li>Impozit independenți</li><li>Declarații speciale</li>',
 
     s5t: 'Administrare salarii',
-    s5p: 'Procesarea corectă a salariilor și documentele sociale pentru angajații dvs.',
+    s5p: '<li>Procesarea salariilor lunare</li><li>Documente sociale și declarații</li><li>Conformitate cu contractele de muncă</li>',
 
     s6t: 'Audit & Control',
-    s6p: 'Audit independent al situațiilor financiare anuale și proceselor interne.',
+    s6p: '<li>Audit independent al situațiilor financiare</li><li>Revizuirea proceselor interne</li><li>Evaluarea conformității și riscurilor</li>',
 
     // ── Experts page ────────────────────────────────────────
     exp_tag:            'Echipa',
-    exp_title:          'Experții noștri',
+    exp_title:          'Echipa noastră',
     exp_sub:            'Cunoașteți oamenii din spatele MC Fiduciaire.',
 
     // ── About / Why Us page ─────────────────────────────────
     why_tag:            'De ce MC Fiduciaire',
     why_title:          'Mai mult decât un contabil',
     why_sub:            'Suntem partenerul dvs. strategic – implicați, proactivi și mereu disponibili.',
-    why1:               'Contabili fiscali certificați cu ani de experiență',
-    why2:               'Abordare personală – nu numere, ci oameni',
-    why3:               'Consiliere proactivă – noi vă contactăm, nu invers',
+    why1:               'Contabili fiscali certificați cu ani de experiență și cunoștințe temeinice ale legislației belgiene',
+    why2:               'Abordare personală – un consultat dedicat care vă cunoaște afacerea în detaliu și vă oferă sfaturi proactive',
+    why3:               'Tehnologie de ultima oră – instrumente digitale pentru eficiență maximă și transparență totală',
     why4:               'Situați în Antwerpen, ușor accesibili',
     why5:               'Tarife transparente fără surprize',
-    why6:               'Timp de răspuns rapid, în 24 de ore',
+    why6:               'Partener pe termen lung',
     why_years:          'Ani de experiență',
     why_vat:            'Număr TVA',
     why_itaa:           'Număr ITAA',
@@ -315,7 +315,7 @@ const TRANSLATIONS = {
     lbl_address:        'Adresă',
     lbl_vat:            'Număr TVA',
     lbl_hours:          'Program',
-    hours_val:          'Lun–Vin: 09:00–17:30',
+    hours_val:          'Lun–Vin: 08:00–17:00',
     docs_label:         'Documente de adus:',
 
     // ── Footer ──────────────────────────────────────────────
@@ -347,7 +347,7 @@ const TRANSLATIONS = {
     hero_badge:         'Cabinet Comptable Certifié · Anvers · Est. 2017',
     hero_itaa:          'Numéro ITAA : 50 617 731',
     hero_h1:            'Vos finances en <em>mains de confiance</em>',
-    hero_p:             'MC Fiduciaire accompagne les entrepreneurs et PME d\'Anvers avec des conseils fiscaux et comptables personnalisés.',
+    hero_p:             'MC Fiduciaire accompagne les entrepreneurs et PME de Belgique avec des conseils fiscaux et comptables personnalisés.',
     hero_btn1:          'Prendre rendez-vous',
     hero_btn2:          'Nos services',
 
@@ -363,22 +363,22 @@ const TRANSLATIONS = {
     srv_sub:            'De la comptabilité quotidienne au conseil fiscal stratégique – un package complet pour votre entreprise.',
 
     s1t: 'Comptabilité',
-    s1p: 'Comptabilité quotidienne et mensuelle précise pour votre entreprise.',
+    s1p: '<li>Comptabilité quotidienne et mensuelle</li><li>Rapprochement bancaire et traitement des factures</li><li>Reporting financier clair</li>',
 
     s2t: 'Déclaration fiscale',
-    s2p: 'Dépôt correct et ponctuel de toutes les déclarations fiscales, y compris l\'impôt des sociétés et des personnes physiques.',
+    s2p: '<li>Déclarations pour sociétés et personnes physiques</li><li>Dépôt dans les délais pour éviter les pénalités</li><li>Déductions optimisées et économies fiscales</li>',
 
     s3t: 'Conseil financier',
-    s3p: 'Conseils stratégiques pour la croissance, les investissements et l\'optimisation de vos finances.',
+    s3p: '<li>Stratégie de croissance et d\'investissement</li><li>Planification et prévision de trésorerie</li><li>Optimisation de la structure financière</li>',
 
     s4t: 'Création d\'entreprise',
-    s4p: 'Accompagnement lors de la création de votre société, du choix de la forme juridique à l\'enregistrement.',
+    s4p: '<li>Choix de la forme juridique</li><li>Élaboration du plan financier</li><li>Enregistrement auprès des autorités compétentes</li>',
 
     s5t: 'Gestion des salaires',
-    s5p: 'Traitement correct des salaires, documents sociaux et déclarations pour vos employés.',
+    s5p: '<li>Traitement mensuel des salaires</li><li>Documents sociaux et déclarations</li><li>Conformité aux contrats de travail</li>',
 
     s6t: 'Audit & Contrôle',
-    s6p: 'Audit indépendant de vos comptes annuels et processus internes.',
+    s6p: '<li>Audit indépendant des comptes annuels</li><li>Revue des processus internes</li><li>Évaluation de la conformité et des risques</li>',
 
     // ── Experts page ────────────────────────────────────────
     exp_tag:            'L\'équipe',
@@ -447,7 +447,7 @@ const TRANSLATIONS = {
     hero_badge:         'Gabinete Contabilístico Certificado · Antuérpia · Est. 2017',
     hero_itaa:          'Número ITAA : 50 617 731',
     hero_h1:            'As suas finanças em <em>mãos de confiança</em>',
-    hero_p:             'A MC Fiduciaire acompanha empresários e PME de Antuérpia com aconselhamento fiscal e contabilístico personalizado.',
+    hero_p:             'A MC Fiduciaire acompanha empresários e PME de Belgia com aconselhamento fiscal e contabilístico personalizado.',
     hero_btn1:          'Marcar uma consulta',
     hero_btn2:          'Os nossos serviços',
 
@@ -463,22 +463,22 @@ const TRANSLATIONS = {
     srv_sub:            'Da contabilidade diária ao aconselhamento fiscal estratégico – um pacote completo para o seu negócio.',
 
     s1t: 'Contabilidade',
-    s1p: 'Contabilidade diária e mensal precisa para a sua empresa.',
+    s1p: '<li>Contabilidade diária e mensal</li><li>Reconciliação bancária e processamento de faturas</li><li>Relatórios financeiros claros</li>',
 
     s2t: 'Declaração fiscal',
-    s2p: 'Entrega correta e atempada de todas as declarações fiscais, incluindo IRC e IRS.',
+    s2p: '<li>Declarações para empresas e pessoas singulares</li><li>Entrega atempada para evitar penalizações</li><li>Deduções otimizadas e poupança fiscal</li>',
 
     s3t: 'Assessoria financeira',
-    s3p: 'Conselhos estratégicos para crescimento, investimentos e otimização das suas finanças.',
+    s3p: '<li>Estratégia de crescimento e investimento</li><li>Planeamento e previsão de fluxo de caixa</li><li>Otimização da estrutura financeira</li>',
 
     s4t: 'Constituição de empresa',
-    s4p: 'Apoio na constituição da sua sociedade, desde a forma jurídica até ao registo.',
+    s4p: '<li>Escolha da forma jurídica</li><li>Elaboração do plano de negócios</li><li>Registo junto das autoridades competentes</li>',
 
     s5t: 'Processamento salarial',
-    s5p: 'Processamento correto de salários, documentos sociais e declarações para os seus colaboradores.',
+    s5p: '<li>Processamento mensal de salários</li><li>Documentos sociais e declarações</li><li>Conformidade com contratos de trabalho</li>',
 
     s6t: 'Auditoria & Controlo',
-    s6p: 'Auditoria independente das suas contas anuais e processos internos.',
+    s6p: '<li>Auditoria independente das contas anuais</li><li>Revisão dos processos internos</li><li>Avaliação de conformidade e riscos</li>',
 
     // ── Experts page ────────────────────────────────────────
     exp_tag:            'A equipa',
@@ -515,7 +515,7 @@ const TRANSLATIONS = {
     lbl_address:        'Endereço',
     lbl_vat:            'Número de IVA',
     lbl_hours:          'Horário de funcionamento',
-    hours_val:          'Seg–Sex: 09:00–17:30',
+    hours_val:          'Seg–Sex: 08:00–17:00',
     docs_label:         'Documentos a trazer:',
 
     // ── Footer ──────────────────────────────────────────────
@@ -547,7 +547,7 @@ const TRANSLATIONS = {
     hero_badge:         'Сертифицированная бухгалтерская фирма · Антверпен · Осн. 2017',
     hero_itaa:          'Номер ITAA : 50 617 731',
     hero_h1:            'Ваши финансы в <em>надёжных руках</em>',
-    hero_p:             'MC Fiduciaire сопровождает предпринимателей и малый бизнес Антверпена с персональными налоговыми и бухгалтерскими консультациями.',
+    hero_p:             'MC Fiduciaire сопровождает предпринимателей и малый бизнес Бельгии с персональными налоговыми и бухгалтерскими консультациями.',
     hero_btn1:          'Записаться на приём',
     hero_btn2:          'Наши услуги',
 
@@ -563,22 +563,22 @@ const TRANSLATIONS = {
     srv_sub:            'От ежедневного учёта до стратегического налогового консультирования – полный пакет для вашего бизнеса.',
 
     s1t: 'Бухгалтерский учёт',
-    s1p: 'Точный ежедневный и ежемесячный учёт для вашей компании.',
+    s1p: '<li>Ежедневный и ежемесячный бухгалтерский учёт</li><li>Банковская сверка и обработка счетов</li><li>Чёткая финансовая отчётность</li>',
 
     s2t: 'Налоговая декларация',
-    s2p: 'Правильная и своевременная подача всех налоговых деклараций, включая налог на прибыль и НДФЛ.',
+    s2p: '<li>Декларации для юридических и физических лиц</li><li>Своевременная подача для избежания штрафов</li><li>Оптимизированные вычеты и налоговая экономия</li>',
 
     s3t: 'Финансовое консультирование',
-    s3p: 'Стратегические советы по развитию, инвестициям и оптимизации ваших финансов.',
+    s3p: '<li>Стратегия роста и инвестиций</li><li>Планирование денежных потоков</li><li>Оптимизация финансовой структуры</li>',
 
     s4t: 'Регистрация компании',
-    s4p: 'Сопровождение при создании вашей компании – от выбора организационной формы до регистрации.',
+    s4p: '<li>Выбор организационно-правовой формы</li><li>Составление бизнес-плана</li><li>Регистрация в компетентных органах</li>',
 
     s5t: 'Расчёт заработной платы',
-    s5p: 'Правильный расчёт зарплат, социальные документы и декларации для ваших сотрудников.',
+    s5p: '<li>Ежемесячный расчёт заработной платы</li><li>Социальные документы и декларации</li><li>Соответствие трудовым договорам</li>',
 
     s6t: 'Аудит и контроль',
-    s6p: 'Независимый аудит вашей годовой отчётности и внутренних процессов.',
+    s6p: '<li>Независимый аудит годовой отчётности</li><li>Проверка внутренних процессов</li><li>Оценка соответствия и рисков</li>',
 
     // ── Experts page ────────────────────────────────────────
     exp_tag:            'Команда',
@@ -647,7 +647,7 @@ const TRANSLATIONS = {
     hero_badge:         'Сертифікована бухгалтерська фірма · Антверпен · Засн. 2017',
     hero_itaa:          'Номер ITAA : 50 617 731',
     hero_h1:            'Ваші фінанси в <em>надійних руках</em>',
-    hero_p:             'MC Fiduciaire супроводжує підприємців та малий бізнес Антверпена з персональними податковими та бухгалтерськими консультаціями.',
+    hero_p:             'MC Fiduciaire супроводжує підприємців та малий бізнес Бельгії з персональними податковими та бухгалтерськими консультаціями.',
     hero_btn1:          'Записатися на прийом',
     hero_btn2:          'Наші послуги',
 
@@ -663,22 +663,22 @@ const TRANSLATIONS = {
     srv_sub:            'Від щоденного обліку до стратегічного податкового консультування – повний пакет для вашого бізнесу.',
 
     s1t: 'Бухгалтерський облік',
-    s1p: 'Точний щоденний та щомісячний облік для вашої компанії.',
+    s1p: '<li>Щоденний та щомісячний бухгалтерський облік</li><li>Банківська звірка та обробка рахунків</li><li>Чітка фінансова звітність</li>',
 
     s2t: 'Податкова декларація',
-    s2p: 'Правильне та своєчасне подання всіх податкових декларацій, включаючи податок на прибуток та ПДФО.',
+    s2p: '<li>Декларації для юридичних та фізичних осіб</li><li>Своєчасне подання для уникнення штрафів</li><li>Оптимізовані відрахування та податкова економія</li>',
 
     s3t: 'Фінансове консультування',
-    s3p: 'Стратегічні поради щодо розвитку, інвестицій та оптимізації ваших фінансів.',
+    s3p: '<li>Стратегія зростання та інвестицій</li><li>Планування грошових потоків</li><li>Оптимізація фінансової структури</li>',
 
     s4t: 'Реєстрація компанії',
-    s4p: 'Супровід при створенні вашої компанії – від вибору організаційної форми до реєстрації.',
+    s4p: '<li>Вибір організаційно-правової форми</li><li>Складання бізнес-плану</li><li>Реєстрація в компетентних органах</li>',
 
     s5t: 'Розрахунок заробітної плати',
-    s5p: 'Правильний розрахунок зарплат, соціальні документи та декларації для ваших співробітників.',
+    s5p: '<li>Щомісячний розрахунок заробітної плати</li><li>Соціальні документи та декларації</li><li>Відповідність трудовим договорам</li>',
 
     s6t: 'Аудит і контроль',
-    s6p: 'Незалежний аудит вашої річної звітності та внутрішніх процесів.',
+    s6p: '<li>Незалежний аудит річної звітності</li><li>Перевірка внутрішніх процесів</li><li>Оцінка відповідності та ризиків</li>',
 
     // ── Experts page ────────────────────────────────────────
     exp_tag:            'Команда',
