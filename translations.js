@@ -115,7 +115,7 @@ const TRANSLATIONS = {
     lbl_address:        'Address',
     lbl_vat:            'VAT number',
     lbl_hours:          'Opening hours',
-    hours_val:          'Mon–Fri: 09:00–17:30',
+    hours_val:          'Mon–Fri: 08:00–17:00',
     docs_label:         'Documents to bring:',
 
     // ── Footer ──────────────────────────────────────────────
@@ -215,7 +215,7 @@ const TRANSLATIONS = {
     lbl_address:        'Adres',
     lbl_vat:            'BTW-nummer',
     lbl_hours:          'Openingstijden',
-    hours_val:          'Ma–Vr: 09:00–17:30',
+    hours_val:          'Ma–Vr: 08:00–17:00',
     docs_label:         'Mee te brengen documenten:',
 
     // ── Footer ──────────────────────────────────────────────
@@ -415,7 +415,7 @@ const TRANSLATIONS = {
     lbl_address:        'Adresse',
     lbl_vat:            'Numéro de TVA',
     lbl_hours:          'Heures d\'ouverture',
-    hours_val:          'Lun–Ven : 09:00–17:30',
+    hours_val:          'Lun–Ven : 08:00–17:00',
     docs_label:         'Documents à apporter :',
 
     // ── Footer ──────────────────────────────────────────────
@@ -615,7 +615,7 @@ const TRANSLATIONS = {
     lbl_address:        'Адрес',
     lbl_vat:            'Номер НДС',
     lbl_hours:          'Часы работы',
-    hours_val:          'Пн–Пт: 09:00–17:30',
+    hours_val:          'Пн–Пт: 08:00–17:00',
     docs_label:         'Документы для предоставления:',
 
     // ── Footer ──────────────────────────────────────────────
@@ -715,7 +715,7 @@ const TRANSLATIONS = {
     lbl_address:        'Адреса',
     lbl_vat:            'Номер ПДВ',
     lbl_hours:          'Години роботи',
-    hours_val:          'Пн–Пт: 09:00–17:30',
+    hours_val:          'Пн–Пт: 08:00–17:00',
     docs_label:         'Документи для надання:',
 
     // ── Footer ──────────────────────────────────────────────
