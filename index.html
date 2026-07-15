@@ -11,6 +11,7 @@
        ═══════════════════════════════════════════════════════════ */
     :root {
       --navy:       #0d1b2a;
+      --logo-color  :#0d1b2a;
       --blue:       #1a56db;
       --blue-hover: #1446b8;
       --blue-light: #e8f0fe;
@@ -43,10 +44,10 @@
       padding: 0 6%; height: 70px; gap: 1rem;
     }
     .logo {
-      font-size: 1.4rem; font-weight: 700; color: var(--navy);
+      font-size: 1.4rem; font-weight: 700; color: var(--logo-color);
       letter-spacing: -.5px; white-space: nowrap; cursor: pointer;
     }
-    .logo span { color: var(--blue); }
+    .logo span { color: var(--logo-color); }
     nav ul { list-style: none; display: flex; gap: 1.8rem; }
     nav ul a {
       text-decoration: none; color: var(--gray); font-size: .9rem;
@@ -135,7 +136,7 @@
       border-radius: 20px; padding: .2rem .65rem; font-size: .78rem;
       color: rgba(255,255,255,.7); white-space: nowrap;
     }
-    .hero-lang-flag { width: 20px; height: 15px; border-radius: 2px; object-fit: cover; display: inline-block; vertical-align: middle; }
+    .hero-lang-flag { font-size: 1rem; line-height: 1; }
 
     /* ── Hero slideshow ─────────────────────────────────────── */
     .hero-slideshow {
@@ -357,6 +358,44 @@
        FOOTER
        ═══════════════════════════════════════════════════════════ */
     footer { background: #060f18; color: rgba(255,255,255,.45); text-align: center; padding: 1.8rem; font-size: .85rem; }
+    .footer-link { color: rgba(255,255,255,.6); text-decoration: underline; cursor: pointer; background: none; border: none; font: inherit; margin-top: .6rem; display: inline-block; }
+    .footer-link:hover { color: var(--white); }
+
+    /* ═══════════════════════════════════════════════════════════
+       PRIVACY / COOKIE POLICY MODAL
+       ═══════════════════════════════════════════════════════════ */
+    .policy-modal {
+      position: fixed; inset: 0; z-index: 2000;
+      display: flex; align-items: center; justify-content: center;
+      background: rgba(0,0,0,.6); padding: 1.5rem;
+    }
+    .policy-modal.hidden { display: none; }
+    .policy-box {
+      background: var(--white); color: var(--navy); border-radius: 12px;
+      max-width: 760px; width: 100%; max-height: 88vh;
+      overflow: hidden; position: relative;
+      display: flex; flex-direction: column; box-shadow: 0 30px 80px rgba(0,0,0,.4);
+    }
+    .policy-close {
+      position: absolute; top: .5rem; right: .8rem;
+      background: none; border: none; font-size: 1.9rem; line-height: 1;
+      color: var(--gray); cursor: pointer; z-index: 2;
+    }
+    .policy-close:hover { color: var(--navy); }
+    .policy-content { overflow-y: auto; padding: 2.6rem 2rem 2rem; text-align: left; }
+    .policy-content h1 { font-size: 1.5rem; margin: 1.6rem 0 .6rem; color: var(--navy); line-height: 1.2; }
+    .policy-content h1:first-child { margin-top: 0; }
+    .policy-content h2 { font-size: 1.1rem; margin: 1.3rem 0 .5rem; color: var(--blue); }
+    .policy-content h3 { font-size: 1rem; margin: 1rem 0 .4rem; color: var(--navy); }
+    .policy-content p, .policy-content li { color: var(--gray); font-size: .9rem; line-height: 1.65; }
+    .policy-content ul { padding-left: 1.2rem; margin: .5rem 0; }
+    .policy-content li { margin-bottom: .3rem; }
+    .policy-content hr { border: none; border-top: 1px solid var(--border); margin: 2rem 0; }
+    .policy-content table { width: 100%; border-collapse: collapse; margin: 1rem 0; font-size: .82rem; }
+    .policy-content th, .policy-content td { border: 1px solid var(--border); padding: .5rem .6rem; text-align: left; vertical-align: top; }
+    .policy-content th { background: var(--light); color: var(--navy); }
+    .policy-content strong { color: var(--navy); }
+    .policy-content em { color: var(--gray); font-style: italic; }
 
     /* ═══════════════════════════════════════════════════════════
        COOKIE BANNER
@@ -492,68 +531,75 @@
           <!-- Available-in language strip -->
           <div class="hero-langs">
             <span class="hero-langs-label">Available in</span>
-            <span class="hero-lang"><img class="hero-lang-flag" src="https://flagcdn.com/20x15/ro.png" alt="RO"> Română</span>
-            <span class="hero-lang"><img class="hero-lang-flag" src="https://flagcdn.com/20x15/fr.png" alt="FR"> Français</span>
-            <span class="hero-lang"><img class="hero-lang-flag" src="https://flagcdn.com/20x15/gb.png" alt="EN"> English</span>
-            <span class="hero-lang"><img class="hero-lang-flag" src="https://flagcdn.com/20x15/nl.png" alt="NL"> Nederlands</span>
-            <span class="hero-lang"><img class="hero-lang-flag" src="https://flagcdn.com/20x15/pt.png" alt="PT"> Português</span>
-            <span class="hero-lang"><img class="hero-lang-flag" src="https://flagcdn.com/20x15/ru.png" alt="RU"> Русский</span>
-            <span class="hero-lang"><img class="hero-lang-flag" src="https://flagcdn.com/20x15/ua.png" alt="UA"> Українська</span>
+            <span class="hero-lang"><span class="hero-lang-flag">🇷🇴</span> Română</span>
+            <span class="hero-lang"><span class="hero-lang-flag">🇫🇷</span> Français</span>
+            <span class="hero-lang"><span class="hero-lang-flag">🇬🇧</span> English</span>
+            <span class="hero-lang"><span class="hero-lang-flag">🇳🇱</span> Nederlands</span>
+            <span class="hero-lang"><span class="hero-lang-flag">🇵🇹</span> Português</span>
+            <span class="hero-lang"><span class="hero-lang-flag">🇷🇺</span> Русский</span>
+            <span class="hero-lang"><span class="hero-lang-flag">🇺🇦</span> Українська</span>
           </div>
         </div>
 
         <!-- Right: photo slideshow -->
         <!-- ══════════════════════════════════════════════════════
-             HOW TO ADD / REPLACE PHOTOS
+             HOW TO ADD YOUR PHOTOS  (no code editing needed)
              ─────────────────────────────────────────────────────
-             1. Put your image files in the same folder as index.html
-                (or a subfolder, e.g. photos/)
-             2. Replace the src="" value on each <img> below.
-                Example: src="photos/office.jpg"
-             3. To add a new slide: copy one <div class="slide">
-                block and paste it before the closing </div> of
-                .hero-slideshow, then update the src.
+             1. Make a folder called  photos  next to index.html.
+             2. Put 5 images inside it, named EXACTLY:
+                   slide-1.jpg   slide-2.jpg   slide-3.jpg
+                   slide-4.jpg   slide-5.jpg
+                (.png works too — just keep the name matching the
+                 src="" on the matching <img> below.)
+             3. Done. Until a file exists, a grey placeholder box
+                shows in its place; as soon as you add the file the
+                photo appears automatically.
+
+             • To add MORE slides: copy one whole <div class="slide">
+               block below, paste it right before
+               <div class="slide-dots">, and give its <img> a new
+               src, e.g. src="photos/slide-6.jpg".
              ══════════════════════════════════════════════════════ -->
         <div class="hero-slideshow" id="hero-slideshow">
 
           <div class="slide active">
+            <img src="photos/slide-1.jpg" alt="" onerror="this.style.display='none'">
             <div class="slide-placeholder">
               <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
-              Photo 1 — replace src below
+              Photo 1
             </div>
-            <!-- <img src="photos/slide-1.jpg" alt=""> -->
           </div>
 
           <div class="slide">
+            <img src="photos/slide-2.jpg" alt="" onerror="this.style.display='none'">
             <div class="slide-placeholder">
               <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
-              Photo 2 — replace src below
+              Photo 2
             </div>
-            <!-- <img src="photos/slide-2.jpg" alt=""> -->
           </div>
 
           <div class="slide">
+            <img src="photos/slide-3.jpg" alt="" onerror="this.style.display='none'">
             <div class="slide-placeholder">
               <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
-              Photo 3 — replace src below
+              Photo 3
             </div>
-            <!-- <img src="photos/slide-3.jpg" alt=""> -->
           </div>
 
           <div class="slide">
+            <img src="photos/slide-4.jpg" alt="" onerror="this.style.display='none'">
             <div class="slide-placeholder">
               <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
-              Photo 4 — replace src below
+              Photo 4
             </div>
-            <!-- <img src="photos/slide-4.jpg" alt=""> -->
           </div>
 
           <div class="slide">
+            <img src="photos/slide-5.jpg" alt="" onerror="this.style.display='none'">
             <div class="slide-placeholder">
               <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
-              Photo 5 — replace src below
+              Photo 5
             </div>
-            <!-- <img src="photos/slide-5.jpg" alt=""> -->
           </div>
 
           <!-- Dot indicators -->
@@ -633,16 +679,16 @@
 
           <!-- ── Expert 1 ── -->
           <div class="expert-card">
-            <img src="photos/name.jpg" alt="Full Name"
+            <img src="avatar/image1.jpeg" alt="Full Name"
                        class="expert-avatar"
                        style="object-fit:cover;width:180px;height:180px;">
-            <div class="expert-name">Voornaam Achternaam</div>
+            <div class="expert-name">Voornaam Achternaam</div>a
             <div class="expert-spec">Specialisatie</div>
           </div>
 
           <!-- ── Expert 2 ── -->
           <div class="expert-card">
-            <img src="photos/name.jpg" alt="Full Name"
+            <img src="avatar/image2.jpeg" alt="Full Name"
                        class="expert-avatar"
                        style="object-fit:cover;width:180px;height:180px;">
             <div class="expert-name">Voornaam Achternaam</div>
@@ -651,7 +697,7 @@
 
           <!-- ── Expert 3 ── -->
           <div class="expert-card">
-            <img src="photos/name.jpg" alt="Full Name"
+            <img src="avatar/image3.jpeg" alt="Full Name"
                        class="expert-avatar"
                        style="object-fit:cover;width:180px;height:180px;">
             <div class="expert-name">Voornaam Achternaam</div>
@@ -660,7 +706,7 @@
 
           <!-- ── Expert 4 ── -->
           <div class="expert-card">
-            <img src="photos/name.jpg" alt="Full Name"
+            <img src="avatar/image4.jpeg" alt="Full Name"
                        class="expert-avatar"
                        style="object-fit:cover;width:180px;height:180px;">
             <div class="expert-name">Voornaam Achternaam</div>
@@ -669,7 +715,7 @@
 
           <!-- ── Expert 5 ── -->
           <div class="expert-card">
-            <img src="photos/name.jpg" alt="Full Name"
+            <img src="avatar/image5.jpeg" alt="Full Name"
                        class="expert-avatar"
                        style="object-fit:cover;width:180px;height:180px;">
             <div class="expert-name">Voornaam Achternaam</div>
@@ -678,7 +724,7 @@
 
           <!-- ── Expert 6 ── -->
           <div class="expert-card">
-            <img src="photos/name.jpg" alt="Full Name"
+            <img src="avatar/image6.jpeg" alt="Full Name"
                        class="expert-avatar"
                        style="object-fit:cover;width:180px;height:180px;">
             <div class="expert-name">Voornaam Achternaam</div>
@@ -687,7 +733,7 @@
 
           <!-- ── Expert 7 ── -->
           <div class="expert-card">
-            <img src="photos/name.jpg" alt="Full Name"
+            <img src="avatar/image7.jpeg" alt="Full Name"
                        class="expert-avatar"
                        style="object-fit:cover;width:180px;height:180px;">
             <div class="expert-name">Voornaam Achternaam</div>
@@ -696,7 +742,7 @@
 
           <!-- ── Expert 8 ── -->
           <div class="expert-card">
-            <img src="photos/name.jpg" alt="Full Name"
+            <img src="avatar/image8.jpeg" alt="Full Name"
                        class="expert-avatar"
                        style="object-fit:cover;width:180px;height:180px;">
             <div class="expert-name">Voornaam Achternaam</div>
@@ -705,7 +751,7 @@
 
           <!-- ── Expert 9 ── -->
           <div class="expert-card">
-            <img src="photos/name.jpg" alt="Full Name"
+            <img src="avatar/image9.jpeg" alt="Full Name"
                        class="expert-avatar"
                        style="object-fit:cover;width:180px;height:180px;">
             <div class="expert-name">Voornaam Achternaam</div>
@@ -864,7 +910,10 @@
   <!-- ══════════════════════════════════════════════════════════
        FOOTER  –  always visible
        ══════════════════════════════════════════════════════════ -->
-  <footer><p data-i18n="footer">© 2025 MC Fiduciaire BV · Heistraat 339, 2610 Antwerpen · BTW BE 0683.926.808</p></footer>
+  <footer>
+    <p data-i18n="footer">© 2025 MC Fiduciaire BV · Heistraat 339, 2610 Antwerpen · BTW BE 0683.926.808</p>
+    <button type="button" class="footer-link" onclick="openPolicy()" data-i18n="footer_privacy">Privacy &amp; Cookiebeleid</button>
+  </footer>
 
   <!-- ══════════════════════════════════════════════════════════
        COOKIE BANNER
@@ -872,12 +921,21 @@
   <div id="cookie-banner" class="hidden" role="dialog" aria-live="polite">
     <p>
       <span data-i18n="cookie_text">Wij gebruiken cookies om uw ervaring op onze website te verbeteren en anonieme bezoekersstatistieken bij te houden.</span>
-      <!-- Replace # with your privacy policy page when available -->
-      <a href="#" onclick="return false;" data-i18n="cookie_policy">Meer informatie</a>
+      <a href="#" onclick="openPolicy(); return false;" data-i18n="cookie_policy">Meer informatie</a>
     </p>
     <div class="cookie-btns">
       <button class="cookie-accept"  onclick="setCookieChoice('accepted')" data-i18n="cookie_accept">Alle cookies aanvaarden</button>
       <button class="cookie-decline" onclick="setCookieChoice('declined')" data-i18n="cookie_decline">Alleen noodzakelijke</button>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════════════════════
+       PRIVACY / COOKIE POLICY MODAL
+       ══════════════════════════════════════════════════════════ -->
+  <div id="policy-modal" class="policy-modal hidden" role="dialog" aria-modal="true" onclick="if(event.target===this)closePolicy()">
+    <div class="policy-box">
+      <button class="policy-close" onclick="closePolicy()" aria-label="Close">&times;</button>
+      <div class="policy-content" id="policy-content"></div>
     </div>
   </div>
 
@@ -900,8 +958,77 @@
     })();
   </script>
 
+  <!-- ── Privacy / cookie policy modal ─────────────────────────
+       The policy text lives in policies.js (one block per language).
+       To edit a policy, just edit that file — no code changes needed.
+       ────────────────────────────────────────────────────────── -->
+  <script>
+    // Minimal Markdown → HTML converter (headings, bold, italic, lists, tables, rules)
+    function mdToHtml(md) {
+      const lines = md.replace(/\r\n/g, '\n').split('\n');
+      const out = [];
+      let para = [], listItems = [];
+      const esc = s => s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+      const inl = s => esc(s)
+        .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
+        .replace(/\*(.+?)\*/g, '<em>$1</em>');
+      const flushPara = () => { if (para.length) { out.push('<p>' + inl(para.join(' ')) + '</p>'); para = []; } };
+      const flushList = () => { if (listItems.length) { out.push('<ul>' + listItems.map(li => '<li>' + inl(li) + '</li>').join('') + '</ul>'); listItems = []; } };
+
+      for (let i = 0; i < lines.length; i++) {
+        const t = lines[i].trim();
+        if (t === '') { flushPara(); flushList(); continue; }
+        if (/^---+$/.test(t)) { flushPara(); flushList(); out.push('<hr>'); continue; }
+        const h = t.match(/^(#{1,6})\s+(.*)$/);
+        if (h) { flushPara(); flushList(); const lvl = h[1].length; out.push('<h' + lvl + '>' + inl(h[2]) + '</h' + lvl + '>'); continue; }
+        if (t.startsWith('|')) {
+          flushPara(); flushList();
+          const tbl = [];
+          while (i < lines.length && lines[i].trim().startsWith('|')) { tbl.push(lines[i].trim()); i++; }
+          i--;
+          const parseRow = r => r.replace(/^\|/, '').replace(/\|$/, '').split('|').map(c => c.trim());
+          const header = parseRow(tbl[0]);
+          const bodyStart = (tbl[1] && /^\|?[\s:|-]+$/.test(tbl[1])) ? 2 : 1;
+          let html = '<table><tr>' + header.map(c => '<th>' + inl(c) + '</th>').join('') + '</tr>';
+          for (let r = bodyStart; r < tbl.length; r++) {
+            html += '<tr>' + parseRow(tbl[r]).map(c => '<td>' + inl(c) + '</td>').join('') + '</tr>';
+          }
+          out.push(html + '</table>');
+          continue;
+        }
+        const li = t.match(/^[-*]\s+(.*)$/);
+        if (li) { flushPara(); listItems.push(li[1]); continue; }
+        flushList(); para.push(t);
+      }
+      flushPara(); flushList();
+      return out.join('\n');
+    }
+
+    function openPolicy() {
+      const lang = document.documentElement.lang || 'ro';
+      const md   = (typeof POLICIES !== 'undefined' && (POLICIES[lang] || POLICIES.nl)) || '';
+      const box  = document.getElementById('policy-content');
+      box.innerHTML = md ? mdToHtml(md) : '<p>The policy could not be loaded.</p>';
+      box.scrollTop = 0;
+      document.getElementById('policy-modal').classList.remove('hidden');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closePolicy() {
+      document.getElementById('policy-modal').classList.add('hidden');
+      document.body.style.overflow = '';
+    }
+
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape') closePolicy();
+    });
+  </script>
+
   <!-- Load translations (all website text) -->
   <script src="translations.js"></script>
+
+  <!-- Load privacy & cookie policy text -->
+  <script src="policies.js"></script>
 
   <!-- Load language-switcher engine -->
   <script src="i18n.js"></script>
@@ -1054,8 +1181,8 @@
       // {
       //   date:  '2025-06-01',
       //   tag:   'BTW',
-      //   title: { ro: 'Titlu RO', en: 'Title EN', fr: 'Titre FR', nl: 'Titel NL', pt: 'Título PT', ru: 'Заголовок RU', uk: 'Заголовок UK' },
-      //   body:  { ro: 'Text RO.', en: 'Text EN.', fr: 'Texte FR.', nl: 'Tekst NL.', pt: 'Texto PT.', ru: 'Текст RU.', uk: 'Текст UK.' },
+      //   title: { ro: 'Titlu RO', en: 'Title EN', nl: 'Titel NL', fr: 'Titre FR', pt: 'Título PT', ru: 'Заголовок RU', uk: 'Заголовок UK' },
+      //   body:  { ro: 'Text RO.', en: 'Text EN.', nl: 'Tekst NL.', fr: 'Texte FR.', pt: 'Texto PT.', ru: 'Текст RU.', uk: 'Текст UK.' },
       // },
     ];
 
@@ -1068,8 +1195,8 @@
       const subtitles = {
         ro: 'Rămâneți la curent cu cele mai recente modificări fiscale și contabile.',
         en: 'Stay up to date with the latest tax and accounting changes.',
-        fr: 'Restez informé des dernières modifications fiscales et comptables.',
         nl: 'Blijf op de hoogte van de laatste fiscale en boekhoudkundige wijzigingen.',
+        fr: 'Restez informé des dernières modifications fiscales et comptables.',
         pt: 'Fique a par das últimas alterações fiscais e contabilísticas.',
         ru: 'Будьте в курсе последних изменений в налоговом и бухгалтерском законодательстве.',
         uk: 'Будьте в курсі останніх змін у податковому та бухгалтерському законодавстві.',
@@ -1077,8 +1204,8 @@
       const titles = {
         ro: 'Modificări legislative & noutăți',
         en: 'Legislative changes & news',
-        fr: 'Changements législatifs & actualités',
         nl: 'Wetswijzigingen & nieuws',
+        fr: 'Changements législatifs & actualités',
         pt: 'Alterações legislativas & notícias',
         ru: 'Изменения законодательства & новости',
         uk: 'Зміни законодавства & новини',
@@ -1086,8 +1213,8 @@
       const emptyMsg = {
         ro: 'Nu există știri disponibile.',
         en: 'No news available.',
-        fr: 'Aucune actualité disponible.',
         nl: 'Geen nieuws beschikbaar.',
+        fr: 'Aucune actualité disponible.',
         pt: 'Não há notícias disponíveis.',
         ru: 'Нет доступных новостей.',
         uk: 'Немає доступних новин.',
@@ -1102,7 +1229,7 @@
         return;
       }
 
-      const locales = { ro: 'ro-RO', en: 'en-GB', fr: 'fr-BE', nl: 'nl-BE', pt: 'pt-PT', ru: 'ru-RU', uk: 'uk-UA' };
+      const locales = { ro: 'ro-RO', en: 'en-GB', nl: 'nl-BE', fr: 'fr-BE', pt: 'pt-PT', ru: 'ru-RU', uk: 'uk-UA' };
       list.innerHTML = NEWS.map(item => {
         const d = new Date(item.date);
         const formatted = d.toLocaleDateString(locales[lang] || 'ro-RO', { day: 'numeric', month: 'long', year: 'numeric' });
@@ -1127,19 +1254,19 @@
        Add a new object to the array below:
 
        {
-         q: { ro: 'Întrebare?', en: 'Question?', fr: 'Question ?', nl: 'Vraag?', pt: 'Pergunta?', ru: 'Вопрос?', uk: 'Питання?' },
-         a: { ro: 'Răspuns.', en: 'Answer.', fr: 'Réponse.', nl: 'Antwoord.', pt: 'Resposta.', ru: 'Ответ.', uk: 'Відповідь.' },
+         q: { ro: 'Întrebare?', en: 'Question?', nl: 'Vraag?', fr: 'Question ?', pt: 'Pergunta?', ru: 'Вопрос?', uk: 'Питання?' },
+         a: { ro: 'Răspuns.', en: 'Answer.', nl: 'Antwoord.', fr: 'Réponse.', pt: 'Resposta.', ru: 'Ответ.', uk: 'Відповідь.' },
        },
        ══════════════════════════════════════════════════════════ */
     const FAQ = [
       {
-        q: { ro: 'Ce formă juridică este potrivită pentru mine?', en: 'Which legal structure is right for me?', fr: 'Quelle forme juridique me convient ?', nl: 'Welke rechtsvorm past bij mij?', pt: 'Que forma jurídica é adequada para mim?', ru: 'Какая организационно-правовая форма мне подходит?', uk: 'Яка організаційно-правова форма мені підходить?' },
-        a: { ro: 'Aceasta este întotdeauna o întrebare de start. O mare parte dintre clienții noștri încep ca independenți, dar dacă volumul de muncă este mare și aveți mai mulți asociați/colaboratori, o societate cu răspundere limitată (BV) este adesea recomandată.', en: 'This is always the first question. Most of our clients start as self-employed, but if the workload is high and you have several partners, a private limited company (BV) is often recommended.', fr: 'C\'est toujours une question de départ. La plupart de nos clients commencent comme indépendants, mais si le volume de travail est important et que vous avez plusieurs associés, une société à responsabilité limitée (BV) est souvent recommandée.', nl: 'Dit is altijd de eerste vraag. De meeste klanten starten als zelfstandige, maar bij een hoog werkvolume en meerdere vennoten wordt een besloten vennootschap (BV) vaak aangeraden.', pt: 'Esta é sempre uma questão de partida. A maioria dos nossos clientes começa como independentes, mas se o volume de trabalho for grande e tiver vários sócios, uma sociedade de responsabilidade limitada (BV) é frequentemente recomendada.', ru: 'Это всегда начальный вопрос. Большинство наших клиентов начинают как самозанятые, но если объём работы большой и у вас несколько партнёров, общество с ограниченной ответственностью (BV) часто рекомендуется.', uk: 'Це завжди початкове питання. Більшість наших клієнтів починають як самозайняті, але якщо обсяг роботи великий і у вас є кілька партнерів, товариство з обмеженою відповідальністю (BV) часто рекомендується.' },
+        q: { ro: 'Ce formă juridică este potrivită pentru mine?', en: 'Which legal structure is right for me?', nl: 'Welke rechtsvorm past bij mij?', fr: 'Quelle forme juridique me convient ?', pt: 'Que forma jurídica é adequada para mim?', ru: 'Какая организационно-правовая форма мне подходит?', uk: 'Яка організаційно-правова форма мені підходить?' },
+        a: { ro: 'Aceasta este întotdeauna o întrebare de start. O mare parte dintre clienții noștri încep ca independenți, dar dacă volumul de muncă este mare și aveți mai mulți asociați/colaboratori, o societate cu răspundere limitată (BV) este adesea recomandată.', en: 'This is always the first question. Most of our clients start as self-employed, but if the workload is high and you have several partners, a private limited company (BV) is often recommended.', nl: 'Dit is altijd de eerste vraag. De meeste klanten starten als zelfstandige, maar bij een hoog werkvolume en meerdere vennoten wordt een besloten vennootschap (BV) vaak aangeraden.', fr: 'C\'est toujours une question de départ. La plupart de nos clients commencent comme indépendants, mais si le volume de travail est important et que vous avez plusieurs associés, une société à responsabilité limitée (BV) est souvent recommandée.', pt: 'Esta é sempre uma questão de partida. A maioria dos nossos clientes começa como independentes, mas se o volume de trabalho for grande e tiver vários sócios, uma sociedade de responsabilidade limitada (BV) é frequentemente recomendada.', ru: 'Это всегда начальный вопрос. Большинство наших клиентов начинают как самозанятые, но если объём работы большой и у вас несколько партнёров, общество с ограниченной ответственностью (BV) часто рекомендуется.', uk: 'Це завжди початкове питання. Більшість наших клієнтів починають як самозайняті, але якщо обсяг роботи великий і у вас є кілька партнерів, товариство з обмеженою відповідальністю (BV) часто рекомендується.' },
       },
       // Add FAQ items here. Example:
       // {
-      //   q: { ro: 'Întrebare?', en: 'Question?', fr: 'Question ?', nl: 'Vraag?', pt: 'Pergunta?', ru: 'Вопрос?', uk: 'Питання?' },
-      //   a: { ro: 'Răspuns.', en: 'Answer.', fr: 'Réponse.', nl: 'Antwoord.', pt: 'Resposta.', ru: 'Ответ.', uk: 'Відповідь.' },
+      //   q: { ro: 'Întrebare?', en: 'Question?', nl: 'Vraag?', fr: 'Question ?', pt: 'Pergunta?', ru: 'Вопрос?', uk: 'Питання?' },
+      //   a: { ro: 'Răspuns.', en: 'Answer.', nl: 'Antwoord.', fr: 'Réponse.', pt: 'Resposta.', ru: 'Ответ.', uk: 'Відповідь.' },
       // },
     ];
 
@@ -1150,8 +1277,8 @@
       const subEl   = document.getElementById('faq-sub');
       if (!list) return;
 
-      const titles = { ro: 'Întrebări frecvente', en: 'Frequently asked questions', fr: 'Questions fréquentes', nl: 'Veelgestelde vragen', pt: 'Perguntas frequentes', ru: 'Часто задаваемые вопросы', uk: 'Часті запитання' };
-      const subs   = { ro: 'Răspunsuri la cele mai frecvente întrebări.', en: 'Answers to the most common questions.', fr: 'Réponses aux questions les plus courantes.', nl: 'Antwoorden op de meest gestelde vragen.', pt: 'Respostas às perguntas mais frequentes.', ru: 'Ответы на наиболее часто задаваемые вопросы.', uk: 'Відповіді на найпоширеніші запитання.' };
+      const titles = { ro: 'Întrebări frecvente', en: 'Frequently asked questions', nl: 'Veelgestelde vragen', fr: 'Questions fréquentes', pt: 'Perguntas frequentes', ru: 'Часто задаваемые вопросы', uk: 'Часті запитання' };
+      const subs   = { ro: 'Răspunsuri la cele mai frecvente întrebări.', en: 'Answers to the most common questions.', nl: 'Antwoorden op de meest gestelde vragen.', fr: 'Réponses aux questions les plus courantes.', pt: 'Respostas às perguntas mais frequentes.', ru: 'Ответы на наиболее часто задаваемые вопросы.', uk: 'Відповіді на найпоширеніші запитання.' };
       if (titleEl) titleEl.textContent = titles[lang] || titles.ro;
       if (subEl)   subEl.textContent   = subs[lang]   || subs.ro;
 
