@@ -236,13 +236,14 @@
 
     /* Photo circle — replace div with <img class="expert-avatar"> for a real photo */
     .expert-avatar {
-      width: 180px; height: 180px; border-radius: 50%;
+      width: 230px; height: 230px; border-radius: 50%;
       background: var(--blue-light); border: 3px solid #d1deff;
       display: flex; align-items: center; justify-content: center;
       font-size: 2.8rem; font-weight: 800; color: var(--blue);
       margin: 0 auto 1.3rem; overflow: hidden;
       transition: border-color .25s;
     }
+    .expert-avatar img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .25s; }
     .expert-card:hover .expert-avatar { border-color: var(--blue); }
     /* When using a real photo:
        <img src="photos/name.jpg" alt="Full Name" class="expert-avatar" style="object-fit:cover;width:180px;height:180px;"> */
@@ -318,7 +319,7 @@
     .contact-grid { display: grid; grid-template-columns: 1fr 1.3fr; gap: 4rem; margin-top: 3rem; }
 
     /* Contact info */
-    .contact-info p { color: rgba(255,255,255,.7); line-height: 1.8; font-size: .97rem; }
+    .contact-info p { color: rgba(255,255,255,.7); line-height: 1.8; font-size: .97rem; text-align: left;}
     .contact-detail { display: flex; gap: .8rem; margin-top: 1.5rem; align-items: flex-start; }
     .contact-detail .icon { font-size: 1.3rem; }
     .contact-detail div   { color: rgba(255,255,255,.8); font-size: .95rem; line-height: 1.5; }
@@ -460,7 +461,7 @@
 
       /* experts */
       .experts-grid { grid-template-columns: 1fr 1fr; gap: 2rem 1.5rem; }
-      .expert-avatar { width: 130px; height: 130px; font-size: 2rem; }
+      .expert-avatar { width: 170px; height: 170px; font-size: 2rem; }
 
       /* why / contact */
       .why-inner    { grid-template-columns: 1fr; gap: 2rem; }
@@ -674,88 +675,98 @@
                3. To use a real photo, replace the avatar div with:
                   <img src="photos/name.jpg" alt="Full Name"
                        class="expert-avatar"
-                       style="object-fit:cover;width:180px;height:180px;">
+                       style="object-fit:cover;width:180px;height:180px;object-position:center center;">
                ══════════════════════════════════════════════════ -->
 
           <!-- ── Expert 1 ── -->
           <div class="expert-card">
-            <img src="avatar/image1.jpeg" alt="Full Name"
-                       class="expert-avatar"
-                       style="object-fit:cover;width:180px;height:180px;">
-            <div class="expert-name">Voornaam Achternaam</div>a
-            <div class="expert-spec">Specialisatie</div>
+            <div class="expert-avatar">
+              <img src="avatar/c-ivanov.jpeg" alt="Full Name"
+                   style="object-position:40% 50%;transform:scale(1);">
+            </div>
+            <div class="expert-name">Ivanov Cristina</div>
+            <div class="expert-spec">ivanov.cristina@mc-fiduciaire.be</div>
           </div>
 
           <!-- ── Expert 2 ── -->
           <div class="expert-card">
-            <img src="avatar/image2.jpeg" alt="Full Name"
-                       class="expert-avatar"
-                       style="object-fit:cover;width:180px;height:180px;">
-            <div class="expert-name">Voornaam Achternaam</div>
-            <div class="expert-spec">Specialisatie</div>
+            <div class="expert-avatar">
+              <img src="avatar/p-madalina.jpeg" alt="Full Name"
+                   style="object-position:40% 50% ;transform:scale(1.3);">
+            </div>
+            <div class="expert-name">Popan Madalina</div>
+            <div class="expert-spec">popan.madalina@mc-fiduciaire.be</div>
           </div>
 
           <!-- ── Expert 3 ── -->
           <div class="expert-card">
-            <img src="avatar/image3.jpeg" alt="Full Name"
-                       class="expert-avatar"
-                       style="object-fit:cover;width:180px;height:180px;">
-            <div class="expert-name">Voornaam Achternaam</div>
-            <div class="expert-spec">Specialisatie</div>
+            <div class="expert-avatar">
+              <img src="avatar/k-veronica.jpeg" alt="Full Name"
+                   style="object-position:50% 50%;transform:scale(1);">
+            </div>
+            <div class="expert-name">Korol Veronica</div>
+            <div class="expert-spec">korol.veronika@mc-fiduciaire.be </div>
           </div>
 
           <!-- ── Expert 4 ── -->
           <div class="expert-card">
-            <img src="avatar/image4.jpeg" alt="Full Name"
-                       class="expert-avatar"
-                       style="object-fit:cover;width:180px;height:180px;">
-            <div class="expert-name">Voornaam Achternaam</div>
-            <div class="expert-spec">Specialisatie</div>
+            <div class="expert-avatar">
+              <img src="avatar/c-cristina.jpeg" alt="Full Name"
+                   style="object-position:50% 50%;transform:scale(1);">
+            </div>
+            <div class="expert-name">Cojocari Cristina</div>
+            <div class="expert-spec">cojocari.cristina@mc-fiduciaire.be</div>
           </div>
 
           <!-- ── Expert 5 ── -->
           <div class="expert-card">
-            <img src="avatar/image5.jpeg" alt="Full Name"
-                       class="expert-avatar"
-                       style="object-fit:cover;width:180px;height:180px;">
-            <div class="expert-name">Voornaam Achternaam</div>
-            <div class="expert-spec">Specialisatie</div>
+            <div class="expert-avatar">
+              <img src="avatar/v-andreea.jpeg" alt="Full Name"
+                   style="object-position:45% 50%;transform:scale(1);">
+            </div>
+            <div class="expert-name">Voloseniuc Andreea</div>
+            <div class="expert-spec">voloseniuc.andreea@mc-fiduciaire.be</div>
           </div>
 
           <!-- ── Expert 6 ── -->
           <div class="expert-card">
-            <img src="avatar/image6.jpeg" alt="Full Name"
-                       class="expert-avatar"
-                       style="object-fit:cover;width:180px;height:180px;">
-            <div class="expert-name">Voornaam Achternaam</div>
-            <div class="expert-spec">Specialisatie</div>
+            <div class="expert-avatar">
+              <img src="avatar/j-diana.jpeg" alt="Full Name"
+                   style="object-position:center center;transform:scale(1);">
+            </div>
+            <div class="expert-name">Jeler Diana</div>
+            <div class="expert-spec">jeler.diana@mc-fiduciaire.be</div>
           </div>
 
           <!-- ── Expert 7 ── -->
           <div class="expert-card">
-            <img src="avatar/image7.jpeg" alt="Full Name"
-                       class="expert-avatar"
-                       style="object-fit:cover;width:180px;height:180px;">
-            <div class="expert-name">Voornaam Achternaam</div>
-            <div class="expert-spec">Specialisatie</div>
+            <div class="expert-avatar">
+              <img src="avatar/d-nicoleta.jpeg" alt="Full Name"
+                   style="object-position:45% 50%;transform:scale(1);">
+            </div>
+            <div class="expert-name">Delcea Nicoleta</div>
+            <div class="expert-spec">delcea.nicoleta@mc-fiduciaire.be </div>
           </div>
 
           <!-- ── Expert 8 ── -->
           <div class="expert-card">
-            <img src="avatar/image8.jpeg" alt="Full Name"
-                       class="expert-avatar"
-                       style="object-fit:cover;width:180px;height:180px;">
-            <div class="expert-name">Voornaam Achternaam</div>
-            <div class="expert-spec">Specialisatie</div>
+            <div class="expert-avatar">
+              <img src="avatar/jana-c.jpeg" alt="Cotoman Jana"
+                   style="object-position:50% 0%;transform:scale(1);">
+            </div>
+            <div class="expert-name">Cotoman Jana</div>
+            <div class="expert-spec">cotoman.jana@mc-fiduciaire.be</div>
+            <div class="expert-spec"> info@mc-fiduciaire.be</div>
           </div>
 
           <!-- ── Expert 9 ── -->
           <div class="expert-card">
-            <img src="avatar/image9.jpeg" alt="Full Name"
-                       class="expert-avatar"
-                       style="object-fit:cover;width:180px;height:180px;">
-            <div class="expert-name">Voornaam Achternaam</div>
-            <div class="expert-spec">Specialisatie</div>
+            <div class="expert-avatar">
+              <img src="avatar/miu-c.jpeg" alt="Miu Cristina"
+                   style="object-position:center center;transform:scale(1);">
+            </div>
+            <div class="expert-name">Miu Cristina</div>
+            <div class="expert-spec">miu.cristina@mc-fiduciaire.be</div>
           </div>
 
 
@@ -874,6 +885,10 @@
             <div class="contact-detail">
               <span class="icon">🕐</span>
               <div data-i18n="hours_val">Ma–Vr: 08:00–17:00</div>
+            </div>
+            <div class="contact-detail">
+              <span class="icon">📱</span>
+              <div>+32 (0)32300649<br/>+32 (0)497419439</div>
             </div>
           </div>
 
@@ -1060,104 +1075,91 @@
         key:   'contabilitate',
         label: { en: 'Bookkeeping',          nl: 'Boekhouding',          ro: 'Contabilitate',       fr: 'Comptabilité',        pt: 'Contabilidade',        ru: 'Бухгалтерский учёт',     uk: 'Бухгалтерський облік' },
         docs:  {
-          en: 'Please bring: bank statements, purchase invoices, sales invoices, receipts and any contracts.',
-          nl: 'Breng mee: bankafschriften, inkoopfacturen, verkoopfacturen, kassatickets en eventuele contracten.',
-          ro: 'Aduceți: extrase bancare, facturi de achiziție, facturi de vânzare, bonuri fiscale și contracte.',
-          fr: 'Apportez : relevés bancaires, factures d\'achat, factures de vente, reçus et contrats éventuels.',
-          pt: 'Traga: extratos bancários, faturas de compra, faturas de venda, recibos e contratos.',
-          ru: 'Принесите: банковские выписки, счета-фактуры на покупку, счета-фактуры на продажу, кассовые чеки и договоры.',
-          uk: 'Принесіть: банківські виписки, рахунки-фактури на купівлю, рахунки-фактури на продаж, касові чеки та договори.',
+          en: 'Please bring: Belgian identity card + PIN code ',
+          nl: 'Breng mee: Belgiche identiteitskaart + PIN code ',
+          ro: 'Aduceți: Carte de identitate belgiana, codul PIN',
+          fr: 'Apportez : Carte d\'identité belge + code PIN',
+          pt: 'Traga: cartão de identificação belga + código PIN , ',
+          ru: 'Принесите: Бельгийское удостоверение личности + PIN-код, ',
+          uk: 'Принесіть: Бельгійська ID-картка + PIN-код, ',
         },
       },
       {
         key:   'fiscal',
         label: { en: 'Tax return',           nl: 'Belastingaangifte',   ro: 'Declarație fiscală',  fr: 'Déclaration fiscale', pt: 'Declaração fiscal',    ru: 'Налоговая декларация',   uk: 'Податкова декларація' },
         docs:  {
-          en: 'Please bring: identity card, previous tax return, salary slips, mortgage certificate and evidence of deductible expenses.',
-          nl: 'Breng mee: identiteitskaart, vorige aangifte, loonfiches, attest hypotheeklening en bewijzen van aftrekbare kosten.',
-          ro: 'Aduceți: carte de identitate, declarația anterioară, fluturași de salariu, certificat ipotecar și dovezi cheltuieli deductibile.',
-          fr: 'Apportez : carte d\'identité, déclaration précédente, fiches de salaire, attestation de prêt hypothécaire et preuves de dépenses déductibles.',
-          pt: 'Traga: cartão de identificação, declaração anterior, recibos de vencimento, certidão de hipoteca e comprovativos de despesas dedutíveis.',
-          ru: 'Принесите: удостоверение личности, предыдущую декларацию, расчётные листки, справку об ипотеке и подтверждение вычитаемых расходов.',
-          uk: 'Принесіть: посвідчення особи, попередню декларацію, розрахункові листки, довідку про іпотеку та підтвердження витрат, що підлягають вирахуванню.',
+          en: 'Please bring: Belgian identity card + PIN code ',
+          nl: 'Breng mee: Belgiche identiteitskaart + PIN code ',
+          ro: 'Aduceți: Carte de identitate belgiana, codul PIN',
+          fr: 'Apportez : Carte d\'identité belge + code PIN',
+          pt: 'Traga: cartão de identificação belga + código PIN , ',
+          ru: 'Принесите: Бельгийское удостоверение личности + PIN-код, ',
+          uk: 'Принесіть: Бельгійська ID-картка + PIN-код, ',
         },
       },
       {
         key:   'tva',
         label: { en: 'VAT return',           nl: 'BTW-aangifte',        ro: 'Declarație TVA',      fr: 'Déclaration TVA',     pt: 'Declaração IVA',       ru: 'Декларация НДС',         uk: 'Декларація ПДВ' },
         docs:  {
-          en: 'Please bring: all purchase invoices, sales invoices and an overview of VAT-taxable transactions for the relevant period.',
-          nl: 'Breng mee: alle inkoopfacturen, verkoopfacturen en een overzicht van BTW-plichtige handelingen voor de betreffende periode.',
-          ro: 'Aduceți: toate facturile de achiziție, facturile de vânzare și situația operațiunilor taxabile TVA pentru perioada respectivă.',
-          fr: 'Apportez : toutes les factures d\'achat, factures de vente et un aperçu des opérations soumises à la TVA pour la période concernée.',
-          pt: 'Traga: todas as faturas de compra, faturas de venda e um resumo das operações sujeitas a IVA para o período em causa.',
-          ru: 'Принесите: все счета-фактуры на покупку, счета-фактуры на продажу и обзор операций, облагаемых НДС, за соответствующий период.',
-          uk: 'Принесіть: всі рахунки-фактури на купівлю, рахунки-фактури на продаж та огляд операцій, що оподатковуються ПДВ, за відповідний період.',
+          en: 'Please bring: Belgian identity card + PIN code ',
+          nl: 'Breng mee: Belgiche identiteitskaart + PIN code ',
+          ro: 'Aduceți: Carte de identitate belgiana, codul PIN',
+          fr: 'Apportez : Carte d\'identité belge + code PIN',
+          pt: 'Traga: cartão de identificação belga + código PIN , ',
+          ru: 'Принесите: Бельгийское удостоверение личности + PIN-код, ',
+          uk: 'Принесіть: Бельгійська ID-картка + PIN-код, ',
         },
       },
       {
         key:   'infiintare',
         label: { en: 'Company formation',    nl: 'Bedrijfsoprichting',  ro: 'Înființare firmă',    fr: 'Création d\'entreprise', pt: 'Constituição de empresa', ru: 'Регистрация компании', uk: 'Реєстрація компанії' },
         docs:  {
-          en: 'Please bring: identity card of all partners, financial plan (if available) and a description of the planned business activities.',
-          nl: 'Breng mee: identiteitskaart van alle vennoten, financieel plan (indien beschikbaar) en een beschrijving van de geplande activiteiten.',
-          ro: 'Aduceți: actul de identitate al tuturor asociaților, plan de afaceri (dacă există) și descrierea activităților planificate.',
-          fr: 'Apportez : carte d\'identité de tous les associés, plan financier (si disponible) et description des activités prévues.',
-          pt: 'Traga: cartão de identificação de todos os sócios, plano financeiro (se disponível) e descrição das atividades previstas.',
-          ru: 'Принесите: удостоверения личности всех партнёров, бизнес-план (при наличии) и описание планируемой деятельности.',
-          uk: 'Принесіть: посвідчення особи всіх партнерів, бізнес-план (якщо є) та опис запланованої діяльності.',
-        },
-      },
-      {
-        key:   'salarii',
-        label: { en: 'Payroll',              nl: 'Loonadministratie',   ro: 'Administrare salarii', fr: 'Gestion des salaires', pt: 'Processamento salarial', ru: 'Расчёт зарплаты',      uk: 'Розрахунок зарплати' },
-        docs:  {
-          en: 'Please bring: employment contracts, employee identity details and the agreed gross salary.',
-          nl: 'Breng mee: arbeidscontracten, identiteitsgegevens van de werknemer(s) en het overeengekomen brutoloon.',
-          ro: 'Aduceți: contracte de muncă, datele de identitate ale angajatului (angajaților) și salariul brut agreat.',
-          fr: 'Apportez : contrats de travail, données d\'identité du/des employé(s) et le salaire brut convenu.',
-          pt: 'Traga: contratos de trabalho, dados de identificação do(s) colaborador(es) e o salário bruto acordado.',
-          ru: 'Принесите: трудовые договоры, персональные данные сотрудника(ов) и согласованную брутто-зарплату.',
-          uk: 'Принесіть: трудові договори, персональні дані співробітника(ів) та погоджену брутто-зарплату.',
+          en: 'Please bring: Belgian identity card + PIN code ',
+          nl: 'Breng mee: Belgiche identiteitskaart + PIN code ',
+          ro: 'Aduceți: Carte de identitate belgiana, codul PIN',
+          fr: 'Apportez : Carte d\'identité belge + code PIN',
+          pt: 'Traga: cartão de identificação belga + código PIN , ',
+          ru: 'Принесите: Бельгийское удостоверение личности + PIN-код, ',
+          uk: 'Принесіть: Бельгійська ID-картка + PIN-код, ',
         },
       },
       {
         key:   'consultanta',
         label: { en: 'Financial advice',     nl: 'Financieel advies',   ro: 'Consultanță financiară', fr: 'Conseil financier', pt: 'Assessoria financeira', ru: 'Финансовое консультирование', uk: 'Фінансове консультування' },
         docs:  {
-          en: 'Please bring: recent annual accounts, bank statements from the last 3 months and an overview of your current financial situation.',
-          nl: 'Breng mee: recente jaarrekeningen, bankafschriften van de laatste 3 maanden en een overzicht van uw huidige financiële situatie.',
-          ro: 'Aduceți: situații financiare recente, extrase bancare din ultimele 3 luni și o prezentare a situației financiare actuale.',
-          fr: 'Apportez : comptes annuels récents, relevés bancaires des 3 derniers mois et un aperçu de votre situation financière actuelle.',
-          pt: 'Traga: contas anuais recentes, extratos bancários dos últimos 3 meses e uma visão geral da sua situação financeira atual.',
-          ru: 'Принесите: последнюю годовую отчётность, банковские выписки за последние 3 месяца и обзор вашего текущего финансового положения.',
-          uk: 'Принесіть: останню річну звітність, банківські виписки за останні 3 місяці та огляд вашого поточного фінансового стану.',
+          en: 'Please bring: Belgian identity card + PIN code ',
+          nl: 'Breng mee: Belgiche identiteitskaart + PIN code ',
+          ro: 'Aduceți: Carte de identitate belgiana, codul PIN',
+          fr: 'Apportez : Carte d\'identité belge + code PIN',
+          pt: 'Traga: cartão de identificação belga + código PIN , ',
+          ru: 'Принесите: Бельгийское удостоверение личности + PIN-код, ',
+          uk: 'Принесіть: Бельгійська ID-картка + PIN-код, ',
         },
       },
       {
         key:   'audit',
         label: { en: 'Audit & Control',      nl: 'Audit & Controle',    ro: 'Audit & Control',     fr: 'Audit & Contrôle',    pt: 'Auditoria & Controlo', ru: 'Аудит и контроль',       uk: 'Аудит і контроль' },
         docs:  {
-          en: 'Please bring: annual accounts for the last 2 years, general ledger, all invoices and internal policy documents.',
-          nl: 'Breng mee: jaarrekeningen van de laatste 2 jaar, grootboek, alle facturen en interne beleidsdocumenten.',
-          ro: 'Aduceți: situații financiare pe ultimii 2 ani, registrul general, toate facturile și documentele de politică internă.',
-          fr: 'Apportez : comptes annuels des 2 dernières années, grand livre, toutes les factures et documents de politique interne.',
-          pt: 'Traga: contas anuais dos últimos 2 anos, razão geral, todas as faturas e documentos de política interna.',
-          ru: 'Принесите: годовую отчётность за последние 2 года, главную книгу, все счета-фактуры и внутренние документы политики.',
-          uk: 'Принесіть: річну звітність за останні 2 роки, головну книгу, всі рахунки-фактури та внутрішні документи.',
+          en: 'Please bring: Belgian identity card + PIN code ',
+          nl: 'Breng mee: Belgiche identiteitskaart + PIN code ',
+          ro: 'Aduceți: Carte de identitate belgiana, codul PIN',
+          fr: 'Apportez : Carte d\'identité belge + code PIN',
+          pt: 'Traga: cartão de identificação belga + código PIN , ',
+          ru: 'Принесите: Бельгийское удостоверение личности + PIN-код, ',
+          uk: 'Принесіть: Бельгійська ID-картка + PIN-код, ',
         },
       },
       {
         key:   'altele',
         label: { en: 'Other',                nl: 'Andere',              ro: 'Altele',              fr: 'Autre',               pt: 'Outro',                ru: 'Другое',                 uk: 'Інше' },
         docs:  {
-          en: 'Please describe your question in the message field below. We will contact you to discuss your situation.',
-          nl: 'Beschrijf uw vraag in het berichtveld hieronder. Wij nemen contact op om uw situatie te bespreken.',
-          ro: 'Descrieți întrebarea dvs. în câmpul de mesaj de mai jos. Vă vom contacta pentru a discuta situația.',
-          fr: 'Décrivez votre question dans le champ de message ci-dessous. Nous vous contacterons pour discuter de votre situation.',
-          pt: 'Descreva a sua questão no campo de mensagem abaixo. Entraremos em contacto para discutir a sua situação.',
-          ru: 'Опишите свой вопрос в поле сообщения ниже. Мы свяжемся с вами для обсуждения вашей ситуации.',
-          uk: 'Опишіть своє запитання у полі повідомлення нижче. Ми зв\'яжемося з вами для обговорення вашої ситуації.',
+          en: 'Please bring: Belgian identity card + PIN code ',
+          nl: 'Breng mee: Belgiche identiteitskaart + PIN code ',
+          ro: 'Aduceți: Carte de identitate belgiana, codul PIN',
+          fr: 'Apportez : Carte d\'identité belge + code PIN',
+          pt: 'Traga: cartão de identificação belga + código PIN , ',
+          ru: 'Принесите: Бельгийское удостоверение личности + PIN-код, ',
+          uk: 'Принесіть: Бельгійська ID-картка + PIN-код, ',
         },
       },
     ];
@@ -1177,6 +1179,12 @@
          body  – article text in each language (HTML allowed, e.g. <strong>, <br>)
        ══════════════════════════════════════════════════════════ */
     const NEWS = [
+      {
+         date:  '2025-06-01',
+         tag:   'Retinere la sursa',
+         title: { ro: 'Noua obligatie de retinere pentru datorii sociale', en: 'Title EN', nl: 'Titel NL', fr: 'Titre FR', pt: 'Título PT', ru: 'Заголовок RU', uk: 'Заголовок UK' },
+         body:  { ro: 'Incepand cu 1 mai 2026 se aplica o noua obligatie de retinere: daca un antreprenor/subantreprenor are datorii sociale in cadrul statutului de independent, trebuie sa retii 15% din valoarea facturii (fara TVA) si sa virezi suma la RSVZ()', en: 'Text EN.', nl: 'Tekst NL.', fr: 'Texte FR.', pt: 'Texto PT.', ru: 'Текст RU.', uk: 'Текст UK.' },
+      }
       // Add news items here. Example:
       // {
       //   date:  '2025-06-01',
@@ -1260,9 +1268,37 @@
        ══════════════════════════════════════════════════════════ */
     const FAQ = [
       {
-        q: { ro: 'Ce formă juridică este potrivită pentru mine?', en: 'Which legal structure is right for me?', nl: 'Welke rechtsvorm past bij mij?', fr: 'Quelle forme juridique me convient ?', pt: 'Que forma jurídica é adequada para mim?', ru: 'Какая организационно-правовая форма мне подходит?', uk: 'Яка організаційно-правова форма мені підходить?' },
-        a: { ro: 'Aceasta este întotdeauna o întrebare de start. O mare parte dintre clienții noștri încep ca independenți, dar dacă volumul de muncă este mare și aveți mai mulți asociați/colaboratori, o societate cu răspundere limitată (BV) este adesea recomandată.', en: 'This is always the first question. Most of our clients start as self-employed, but if the workload is high and you have several partners, a private limited company (BV) is often recommended.', nl: 'Dit is altijd de eerste vraag. De meeste klanten starten als zelfstandige, maar bij een hoog werkvolume en meerdere vennoten wordt een besloten vennootschap (BV) vaak aangeraden.', fr: 'C\'est toujours une question de départ. La plupart de nos clients commencent comme indépendants, mais si le volume de travail est important et que vous avez plusieurs associés, une société à responsabilité limitée (BV) est souvent recommandée.', pt: 'Esta é sempre uma questão de partida. A maioria dos nossos clientes começa como independentes, mas se o volume de trabalho for grande e tiver vários sócios, uma sociedade de responsabilidade limitada (BV) é frequentemente recomendada.', ru: 'Это всегда начальный вопрос. Большинство наших клиентов начинают как самозанятые, но если объём работы большой и у вас несколько партнёров, общество с ограниченной ответственностью (BV) часто рекомендуется.', uk: 'Це завжди початкове питання. Більшість наших клієнтів починають як самозайняті, але якщо обсяг роботи великий і у вас є кілька партнерів, товариство з обмеженою відповідальністю (BV) часто рекомендується.' },
-      },
+    q: { ro: 'Ce forma juridica este potrivita pentru mine?', en: 'Which legal structure is right for me?', nl: 'Welke rechtsvorm is het meest geschikt voor mijn onderneming?', fr: 'Quelle forme juridique est la plus adaptée à mon activité ?', pt: 'Qual é a forma jurídica mais adequada para a minha atividade?', ru: 'Какая юридическая форма подходит именно мне?', uk: 'Яка юридична форма підходить саме мені?' },
+    a: { ro: 'Aceasta este intotdeauna o intrebare de start. O mare parte dintre clientii nostri incep ca independenti dar daca profitul depaseste un uncertain plafon, volumul de munca este mare si aveti mai multi asociati/colaboratori, o societate cu raspundere limitata (BV) este adesea recomandata.', en: 'This is one of the first questions every entrepreneur should ask. Many of our clients start as self-employed individuals. However, once your profits exceed a certain level, your business grows, or you work with several partners or employees, establishing a Private Limited Company (BV) is often the most suitable option.', nl: 'Dit is altijd één van de eerste vragen die gesteld wordt. Een groot deel van onze klanten start als zelfstandige. Wanneer de winst echter een bepaald niveau overschrijdt, de activiteiten uitbreiden of u met meerdere vennoten of medewerkers samenwerkt, is een besloten vennootschap (BV) vaak de meest geschikte keuze.', fr: 'Il s\'agit toujours de la première question à se poser. Une grande partie de nos clients débutent leur activité en tant qu\'indépendants. Toutefois, lorsque les bénéfices dépassent un certain seuil, que le volume d\'activité augmente ou que plusieurs associés ou collaborateurs interviennent dans l\'entreprise, la création d\'une société à responsabilité limitée (BV) est souvent la solution la plus appropriée.', pt: 'Esta é sempre uma das primeiras questões a considerar. Muitos dos nossos clientes iniciam a sua atividade como trabalhadores independentes. No entanto, quando os lucros ultrapassam um determinado limite, o volume de atividade aumenta ou existem vários sócios ou colaboradores, a constituição de uma Sociedade por Quotas (BV) é frequentemente a opção mais indicada.', ru: 'Это всегда является первым важным вопросом. Многие наши клиенты начинают свою деятельность как индивидуальные предприниматели. Однако, если прибыль превышает определённый уровень, объём работы значительно увеличивается или появляется несколько партнёров/сотрудников, часто рекомендуется создание общества с ограниченной ответственностью (BV).', uk: 'Це завжди є першим важливим питанням. Багато наших клієнтів розпочинають свою діяльність як самозайняті особи (незалежні підприємці). Однак, якщо прибуток перевищує певний рівень, обсяг роботи значно зростає або з\'являється кілька партнерів/співробітників, часто рекомендується створення товариства з обмеженою відповідальністю (BV).' }
+  },
+  {
+    q: { ro: 'Ce costuri implica infiintarea si primii pasi?', en: 'What are the costs of starting a business?', nl: 'Welke kosten zijn verbonden aan de oprichting van een onderneming?', fr: 'Quels sont les coûts liés à la création d\'une entreprise et aux premières démarches ?', pt: 'Quais são os custos da constituição de uma empresa e dos primeiros passos?', ru: 'Какие расходы связаны с созданием компании и первыми этапами деятельности?', uk: 'Які витрати пов\'язані зі створенням компанії та першими етапами діяльності?' },
+    a: { ro: 'Pe langa onorariile notariale, onorarile contabilului pentru planul financiar si asistenta la deschiderea societatii, costurile de inregistrare la Crossroads Bank For Enterprises (BCE/KBO) trebuie sa luati in calcul si blocarea pentru o perioada determinata a aportului propriu (inainte cunoscut sub numele de capital social, acum nu mai este impus de lege o suma anume).', en: 'Besides the notary\'s fees and the accountant\'s fees for preparing the financial plan and assisting with the incorporation process, you should also consider the registration costs with the Crossroads Bank for Enterprises (CBE/KBO). In addition, founders are generally required to provide an initial financial contribution to support the company at its start. Unlike the former share capital requirement, Belgian law no longer imposes a fixed minimum amount.', nl: 'Naast de notariskosten en de erelonen van de accountant voor het opstellen van het financieel plan en de begeleiding bij de oprichting van de vennootschap, moet u ook rekening houden met de inschrijvingskosten bij de Kruispuntbank van Ondernemingen (KBO/BCE). Daarnaast dient u een voldoende eigen inbreng te voorzien, die gedurende een bepaalde periode ter beschikking van de vennootschap blijft. In tegenstelling tot het vroegere maatschappelijk kapitaal legt de Belgische wetgeving vandaag geen minimumbedrag meer op.', fr: 'Outre les honoraires du notaire ainsi que ceux du comptable pour l\'établissement du plan financier et l\'accompagnement lors de la constitution de la société, il convient également de prendre en compte les frais d\'inscription à la Banque-Carrefour des Entreprises (BCE/KBO). Il est également nécessaire de prévoir un apport propre suffisant, qui sera immobilisé pendant une certaine période. Contrairement à l\'ancien capital social, la législation belge ne fixe désormais plus de montant minimum obligatoire.', pt: 'Além dos honorários do notário e dos honorários do contabilista relativos à elaboração do plano financeiro e ao acompanhamento da constituição da empresa, deverá também ter em consideração os custos de registo junto do Crossroads Bank for Enterprises (BCE/KBO). Além disso, é necessário prever um capital próprio inicial, que ficará afetado à empresa durante um determinado período. Ao contrário do antigo capital social, a legislação belga já não impõe um montante mínimo obrigatório.', ru: 'Помимо нотариальных расходов, необходимо учитывать гонорар бухгалтера за подготовку финансового плана и сопровождение при создании компании, а также регистрационные расходы в Crossroads Bank for Enterprises (BCE/KBO). Также следует учитывать необходимость временной блокировки собственного вклада (ранее известного как уставный капитал; в настоящее время законодательство больше не устанавливает конкретную обязательную сумму капитала).', uk: 'Окрім нотаріальних витрат, необхідно враховувати гонорар бухгалтера за підготовку фінансового плану та супровід під час створення компанії, а також витрати на реєстрацію в Crossroads Bank for Enterprises (BCE/KBO). Також слід враховувати необхідність тимчасового блокування власного внеску (раніше відомого як статутний капітал; наразі законодавство більше не встановлює конкретної обов\'язкової суми капіталу).' }
+  },
+  {
+    q: { ro: 'Am nevoie de un cont bancar profesional?', en: 'Do I need a business bank account?', nl: 'Heb ik een professionele bankrekening nodig?', fr: 'Ai-je besoin d\'un compte bancaire professionnel ?', pt: 'Preciso de uma conta bancária profissional?', ru: 'Нужен ли мне профессиональный банковский счёт?', uk: 'Чи потрібен мені професійний банківський рахунок?' },
+    a: { ro: 'Pentru o societate, contul bancar este obligatoriu, iar daca sunteti persoana fizica (independent) este recomandat sa separati finantele personale de cele profesionale pentru o evidenta contabila clara.', en: 'For a company, a business bank account is mandatory. If you are self-employed, it is highly recommended to keep your personal and business finances separate to ensure accurate bookkeeping and efficient financial management.', nl: 'Voor een vennootschap is een professionele bankrekening wettelijk verplicht. Bent u actief als zelfstandige in een eenmanszaak, dan is het sterk aanbevolen om uw privé- en beroepsfinanciën gescheiden te houden. Dit zorgt voor een duidelijke boekhouding en een efficiënt financieel beheer.', fr: 'Pour une société, un compte bancaire professionnel est obligatoire. Si vous exercez en tant qu\'indépendant (personne physique), il est fortement recommandé de séparer vos finances privées de vos finances professionnelles afin de garantir une comptabilité claire et une bonne gestion financière.', pt: 'No caso de uma sociedade, a abertura de uma conta bancária profissional é obrigatória. Se exercer atividade como trabalhador independente (empresário em nome individual), é altamente recomendável separar as finanças pessoais das profissionais, de forma a garantir uma contabilidade clara e uma gestão financeira eficiente.', ru: 'Для общества профессиональный банковский счёт является обязательным. Если вы работаете как физическое лицо (индивидуальный предприниматель), рекомендуется отделить личные финансы от профессиональных, чтобы обеспечить прозрачный и правильный бухгалтерский учёт.', uk: 'Для товариства професійний банківський рахунок є обов\'язковим. Якщо ви працюєте як фізична особа (самозайнятий підприємець), рекомендується відокремити особисті фінанси від професійних, щоб забезпечити прозорий і правильний бухгалтерський облік.' }
+  },
+  {
+    q: { ro: 'Care este cota de TVA in Belgia?', en: 'What is the VAT rate in Belgium?', nl: 'Welk btw-tarief geldt in België?', fr: 'Quel est le taux de TVA en Belgique ?', pt: 'Qual é a taxa de IVA na Bélgica?', ru: 'Какая ставка НДС действует в Бельгии?', uk: 'Яка ставка ПДВ діє в Бельгії?' },
+    a: { ro: 'In Belgia TVA este de 21% dar exista si cote reduse de 12%, 6% sau chiar 0% pentru anumite bunuri si servicii. Depunerea declaratiilor de TVA (lunare sau trimestriale) si respectarea regulilor privind taxarea inversa sunt obligatorii.', en: 'The standard VAT rate in Belgium is 21%. Reduced rates of 12%, 6%, and 0% apply to specific goods and services. Businesses must submit VAT returns either monthly or quarterly and comply with all applicable VAT regulations, including the reverse charge mechanism where required.', nl: 'Het standaard btw-tarief in België bedraagt 21%. Daarnaast bestaan er verlaagde tarieven van 12%, 6% en 0% voor bepaalde goederen en diensten. Het tijdig indienen van de btw-aangiften (maandelijks of per kwartaal) en het naleven van de regels inzake verlegging van heffing (btw-verlegging) zijn verplicht.', fr: 'Le taux normal de TVA en Belgique est de 21 %. Des taux réduits de 12 %, 6 % et 0 % s\'applient à certains biens et services. Le dépôt des déclarations de TVA (mensuelles ou trimestrielles) ainsi que le respect des règles relatives à l\'autoliquidation de la TVA (reverse charge) sont obligatoires.', pt: 'A taxa normal de IVA na Bélgica é de 21%. Existem igualmente taxas reduzidas de 12%, 6% e 0%, aplicáveis a determinados bens e serviços. A entrega das declarações periódicas de IVA (mensais ou trimestriais), bem como o cumprimento das regras relativas ao mecanismo de autoliquidação do IVA (reverse charge), é obrigatória.', ru: 'В Бельгии стандартная ставка НДС составляет 21%, однако для определённых товаров и услуг применяются сниженные ставки 12%, 6% или даже 0%. Подача деклараций по НДС (ежемесячно или ежеквартально), а также соблюдение правил, касающихся обратного начисления НДС (reverse charge), являются обязательными.', uk: 'У Бельгії стандартна ставка ПДВ становить 21%, однак для певних товарів і послуг застосовуються знижені ставки 12%, 6% або навіть 0%. Подання декларацій з ПДВ (щомісячно або щоквартально), а також дотримання правил щодо зворотного нарахування ПДВ (reverse charge) є обов\'язковими.' }
+  },
+  {
+    q: { ro: 'Ce trebuie sa declar la final de an?', en: 'What must I declare at the end of the year?', nl: 'Wat moet ik aan het einde van het jaar aangeven?', fr: 'Que dois-je déclarer à la fin de l\'année ?', pt: 'O que devo declarar no final do ano?', ru: 'Что необходимо декларировать в конце года?', uk: 'Що необхідно декларувати наприкінці року?' },
+    a: { ro: 'Toate persoanele care au rezidenta in Belgia si au realizat venituri in Belgia sunt obligate, conform legii sa depuna o declaratie fiscala anuala unde sa fie declarate toate veniturile din intreaga lume, cu mentiunea ca acestea nu mai sunt impozitate inca o data in Belgia ci sunt luate in calcul la stabilirea plafonului de impozitare.', en: 'Anyone who is considered a Belgian tax resident and has earned income during the tax year must submit an annual income tax return. Belgian tax residents are required to declare their worldwide income. Foreign income is generally not taxed twice in Belgium but may be taken into account when determining the applicable tax rate.', nl: 'Iedereen die fiscaal inwoner is van België en inkomsten heeft verworven, is wettelijk verplicht een jaarlijkse belastingaangifte in te dienen. Belgische fiscale inwoners moeten hun wereldwijde inkomsten aangeven. Buitenlandse inkomsten worden in principe niet opnieuw belast in België, maar worden wel mee in aanmerking genomen voor de bepaling van het toepasselijke belastingtarief.', fr: 'Toute personne ayant sa résidence fiscale en Belgique et percevant des revenus est légalement tenue de déposer une déclaration fiscale annuelle. Les résidents fiscaux belges doivent déclarer l\'ensemble de leurs revenus mondiaux. Les revenus perçus à l\'étranger ne sont généralement pas imposés une seconde fois en Belgique, mais ils sont pris en compte pour déterminer le taux d\'imposition applicable.', pt: 'Todas as pessoas com residência fiscal na Bélgica que tenham obtido rendimentos durante o ano estão legalmente obrigadas a apresentar uma declaração anual de impostos. Os residentes fiscais belgas devem declarar todos os seus rendimentos obtidos em todo o mundo. Os rendimentos provenientes do estrangeiro não são, em regra, tributados novamente na Bélgica, mas são considerados para determinar a taxa de imposto aplicável.', ru: 'Все лица, имеющие налоговое резидентство в Бельгии и получающие доходы в Бельгии, обязаны в соответствии с законодательством подавать ежегодную налоговую декларацию, в которой указываются все мировые доходы. При этом доходы, полученные за пределами Бельгии, не облагаются налогом повторно в Бельгии, но учитываются при определении налоговой ставки.', uk: 'Усі особи, які мають податкове резидентство в Бельгії та отримують доходи в Бельгії, відповідно до законодавства зобов\'язані подавати щорічну податкову декларацію, у якій зазначаються всі доходи, отримані у всьому світі. При цьому доходи, отримані за межами Бельгії, не оподатковуються повторно в Бельгії, але враховуються під час визначення податкової ставки.' }
+  },
+  {
+    q: { ro: 'Ce cheltuieli pot deduce?', en: 'Which expenses are tax deductible?', nl: 'Welke kosten zijn fiscaal aftrekbaar?', fr: 'Quelles dépenses sont déductibles ?', pt: 'Que despesas posso deduzir?', ru: 'Какие расходы можно вычесть из налогооблагаемой базы?', uk: 'Які витрати можна віднести до професійних і відняти від оподатковуваного доходу?' },
+    a: { ro: '100% cheltuielile efectuate strict in scop profesional, iar altele respectiv: vehicule, cheltuieli de birou, cheltuieli de protocol, in functie de utilizarea in scop profesional.', en: 'Business expenses incurred exclusively for professional purposes are generally tax deductible. These may include: company vehicles; office expenses; business entertainment expenses; other professional costs, depending on their business use and the applicable tax rules.', nl: 'Uitgaven die uitsluitend voor beroepsdoeleinden worden gemaakt, zijn in principe 100% fiscaal aftrekbaar. Hieronder vallen onder meer: beroepsmatig gebruikte voertuigen; kantoor- en administratiekosten; representatiekosten; andere beroepskosten, voor zover zij voldoen aan de geldende fiscale voorwaarden en beroepsmatig worden gebruikt.', fr: 'Les dépenses engagées exclusivement à des fins professionnelles sont généralement déductibles à 100 %. Cela concerne notamment: les véhicules utilisés à des fins professionnelles; les frais de bureau; les frais de représentation; ainsi que d\'autres dépenses professionnelles, selon leur utilisation effective et les règles fiscales applicables.', pt: 'As despesas efetuadas exclusivamente para fins profissionais são, em princípio, 100% dedutíveis. Entre elas incluem-se: veículos utilizados para fins profissionais; despesas de escritório; despesas de representação; outras despesas profissionais, desde que cumpram as condições previstas na legislação fiscal e estejam relacionadas com a atividade profissional.', ru: 'Расходы, которые полностью связаны с профессиональной деятельностью, могут быть вычтены на 100%. Другие расходы, такие как расходы на транспортные средства, офисные расходы или представительские расходы, подлежат вычету в зависимости от степени их профессионального использования.', uk: 'Витрати, які здійснені виключно в професійних цілях, можуть бути віднесені до витрат у повному обсязі (100%). Інші витрати, такі як витрати на транспортні засоби, офісні витрати або представницькі витрати, можуть бути враховані залежно від частки їх використання у професійній діяльності.' }
+  },
+  {
+    q: { ro: 'Care sunt termenele limita pentru depunerea declaratiilor de impozit?', en: 'What are the deadlines for filing income tax returns?', nl: 'Wat zijn de uiterste indieningsdata voor de belastingaangifte?', fr: 'Quels sont les délais de dépôt des déclarations fiscales ?', pt: 'Quais são os prazos para a entrega da declaração de impostos?', ru: 'Какие сроки подачи налоговых деклараций?', uk: 'Які строки подання податкових декларацій?' },
+    a: { ro: 'Pentru anul fiscal 2026, venituri realizate in cursul anului 2025, termenele in 2026 sunt urmatoarele: rezidentii depun pe hartie pana pe 30/06/2026, iar electronic pana pe 15/07/2026, cu o prelungire pana pe 16/10/2026 in situatii speciale (venituri din afara Belgiei, activitate independenta). Nerezidentii au termen pana pe 20/11/2026.', en: 'For the 2026 tax year (income earned in 2025), the deadlines are: Residents – Paper return: 30 June 2026; Electronic filing: 15 July 2026; Extended deadline (specific cases such as foreign income or self-employed activity): 16 October 2026. Non-residents – Filing deadline: 20 November 2026.', nl: 'Voor het aanslagjaar 2026 (inkomstenjaar 2025) gelden de volgende termijnen: Inwoners – papieren aangifte: uiterlijk 30 juni 2026; elektronische aangifte: uiterlijk 15 juli 2026; verlenging tot 16 oktober 2026 in specifieke situaties (zoals buitenlandse inkomsten of inkomsten uit een zelfstandige activiteit). Niet-inwoners – uiterste indieningsdatum: 20 november 2026.', fr: 'Pour l\'exercice d\'imposition 2026 (revenus perçus en 2025), les délais sont les suivants: Résidents – déclaration papier: jusqu\'au 30 juin 2026; déclaration électronique: jusqu\'au 15 juillet 2026; prolongation jusqu\'au 16 octobre 2026 dans certains cas particuliers (revenus étrangers ou activité indépendante). Non-résidents – dépôt de la déclaration jusqu\'au 20 novembre 2026.', pt: 'Para o ano fiscal de 2026 (rendimentos obtidos em 2025), os prazos são os seguintes: Residentes – declaração em papel: até 30 de junho de 2026; declaração eletrónica: até 15 de julho de 2026; prorrogação até 16 de outubro de 2026, em situações específicas (rendimentos obtidos no estrangeiro ou atividade independente). Não residentes – prazo de entrega até 20 de novembro de 2026.', ru: 'Для налогового года 2026 (доходы, полученные в 2025 году) сроки подачи деклараций в 2026 году следующие: налоговые резиденты могут подать декларацию на бумаге до 30/06/2026; электронная подача возможна до 15/07/2026; в особых случаях (например, доходы из-за рубежа или самостоятельная профессиональная деятельность) срок может быть продлён до 16/10/2026. Для налоговых нерезидентов срок подачи декларации установлен до 20/11/2026.', uk: 'Для податкового року 2026 (доходи, отримані у 2025 році) строки подання декларацій у 2026 році є такими: податкові резиденти можуть подати декларацію на папері до 30/06/2026; електронне подання можливе до 15/07/2026; у спеціальних випадках (наприклад, доходи з-за кордону або діяльність як самозайнята особа) строк може бути продовжений до 16/10/2026. Для податкових нерезидентів кінцевий строк подання декларації – до 20/11/2026.' }
+  },
+  {
+    q: { ro: 'Cum sunt impozitate veniturile in Belgia pentru nerezidenti?', en: 'How are non-residents taxed in Belgium?', nl: 'Hoe worden de inkomsten van niet-inwoners in België belast?', fr: 'Comment les revenus des non-résidents sont-ils imposés en Belgique ?', pt: 'Como são tributados os rendimentos dos não residentes na Bélgica?', ru: 'Как облагаются налогом доходы нерезидентов в Бельгии?', uk: 'Як оподатковуються доходи нерезидентів у Бельгії?' },
+    a: { ro: 'Nerezidentii sunt impozitati doar pentru veniturile obtinute din surse belgiene, spre deosebire de rezidenti care sunt impozitati pe veniturile din intreaga lume.', en: 'Non-residents are taxed only on income derived from Belgian sources. Unlike Belgian residents, who are taxed on their worldwide income, non-residents are generally subject only to Belgian taxation on Belgian-source income.', nl: 'Niet-inwoners worden uitsluitend belast op inkomsten die afkomstig zijn uit Belgische bronnen. In tegenstelling tot Belgische fiscale inwoners, die belast worden op hun wereldwijde inkomsten, zijn niet-inwoners enkel belasting verschuldigd op inkomsten die in België worden verkregen.', fr: 'Les non-résidents sont imposés uniquement sur les revenus provenant de sources belges. Contrairement aux résidents fiscaux belges, qui sont imposés sur l\'ensemble de leurs revenus mondiaux, les non-résidents ne sont soumis à l\'impôt belge que sur les revenus ayant leur origine en Belgique.', pt: 'Os não residentes são tributados apenas sobre os rendimentos provenientes de fontes belgas. Ao contrário dos residentes fiscais belgas, que são tributados sobre os seus rendimentos mundiais, os não residentes estão sujeitos a imposto na Bélgica apenas relativamente aos rendimentos obtidos em território belga.', ru: 'Налоговые нерезиденты облагаются налогом только на доходы, полученные из бельгийских источников. В отличие от них, налоговые резиденты Бельгии декларируют и облагаются по правилам налогообложения мирового дохода.', uk: 'Податкові нерезиденти оподатковуються лише щодо доходів, отриманих із бельгійських джерел. На відміну від них, податкові резиденти Бельгії повинні декларувати доходи, отримані у всьому світі, відповідно до правил оподаткування світового доходу.' }
+  },
       // Add FAQ items here. Example:
       // {
       //   q: { ro: 'Întrebare?', en: 'Question?', nl: 'Vraag?', fr: 'Question ?', pt: 'Pergunta?', ru: 'Вопрос?', uk: 'Питання?' },
